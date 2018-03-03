@@ -32,6 +32,9 @@ call plug#end()
 " Toggle NERDTree by default
 autocmd VimEnter * NERDTree
 
+" Start cursor at file buffer instead of tree
+autocmd VimEnter * wincmd p
+
 "------------------------------------------------------------
 " Functionality {{{1
 "
