@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Author: Andrew Dean
-# Description: This is a script meant for a clean install of ubuntu using GNOME 
+# Description: This is a script meant for a clean install of ubuntu using GNOME
 
 # Upon completion, will reboot
 # Should be run once with sudo privileges
 # Remember to chmod +x
 
 # ----------------------------------------------------------------------------
-# Update and Upgrade 
+# Update and Upgrade
 #
 
 apt update
@@ -17,7 +17,7 @@ apt -y dist-upgrade
 apt -y install snapd
 
 # ----------------------------------------------------------------------------
-# PPAs 
+# PPAs
 #
 
 ## Third Party
@@ -26,7 +26,7 @@ add-apt-repository -y ppa:maarten-fonville/android-studio
 # Atom
 add-apt-repository -y ppa:webupd8team/atom
 # Lutris
-ver=$(lsb_release -sr); if [ $ver != "17.10" -a $ver != "17.04" -a $ver != "16.04" ]; then ver=16.04; fi 
+ver=$(lsb_release -sr); if [ $ver != "17.10" -a $ver != "17.04" -a $ver != "16.04" ]; then ver=16.04; fi
 echo "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
 wget -q http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/Release.key -O- | sudo apt-key add -
 # Mesa
@@ -135,9 +135,9 @@ apt -y install qjackctl
 
 ## Firewire specific setup
 adduser $USER audio
-apt -y install ffado-mixer-qt4 
+apt -y install ffado-mixer-qt4
 apt -y install jackd2-firewire
-apt -y install pulseaudio-module-jack 
+apt -y install pulseaudio-module-jack
 apt -y install patchage
 
 # ----------------------------------------------------------------------------
@@ -151,7 +151,7 @@ apt -y install gstreamer1.0-fluendo-mp3
 apt -y install gstreamer1.0-libav
 apt -y install gstreamer1.0-plugins-bad
 apy -y install gstreamer1.0-plugins-ugly
-apt -y install oxideqt-codecs-extra 
+apt -y install oxideqt-codecs-extra
 apy -y install ttf-mscorefonts-installer
 apy -y insall unrar
 
