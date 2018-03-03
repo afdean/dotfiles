@@ -23,7 +23,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'plasticboy/vim-markdown'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }"
@@ -172,7 +174,7 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" Use jj for escaping in insert instead of escape key
+" Use jj for escaping in insert and visual instead of escape key
 inoremap jk <esc>
 
 " Change leader from \ to , for comfort
