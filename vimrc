@@ -37,6 +37,9 @@ autocmd VimEnter * NERDTree
 " Start cursor at file buffer instead of tree
 autocmd VimEnter * wincmd p
 
+" Set airline theme
+autocmd VimEnter * AirlineTheme deus
+
 "------------------------------------------------------------
 " Functionality {{{1
 "
@@ -174,7 +177,7 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" Use jj for escaping in insert and visual instead of escape key
+" Use jj for escaping in insert instead of escape key
 inoremap jk <esc>
 
 " Change leader from \ to , for comfort
@@ -183,12 +186,16 @@ let mapleader=","
 " Unbind arrow keys
 inoremap <Up> <Nop>
 noremap <Up> <Nop>
+xnoremap <Up> <Nop>
 inoremap <Down> <Nop>
 noremap <Down> <Nop>
+xnoremap <Down> <Nop>
 inoremap <Left> <Nop>
 noremap <Left> <Nop>
+xnoremap <Left> <Nop>
 inoremap <Right> <Nop>
 noremap <Right> <Nop>
+xnoremap <Right> <Nop>
 
 "------------------------------------------------------------"
 
