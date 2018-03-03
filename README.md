@@ -6,7 +6,9 @@ Collection of system files, as well as scripts for setting up my devices
 
 ## Usage
 
-Run symlink.sh and specify files and folders to be linked in the script
+1. Run symlink.sh and specify files and folders to be linked in the script
+2. Run relevant scripts in setup
+3. Open vim to autoinstall plugins
 
 ## Links
 
