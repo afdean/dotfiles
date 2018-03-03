@@ -4,6 +4,10 @@
 
 Collection of system files, as well as scripts for setting up my devices
 
+## Usage
+
+Run symlink.sh and specify files and folders to be linked in the script
+
 ## Links
 
 Useful information used in creating this repo
