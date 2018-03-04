@@ -10,6 +10,13 @@ Collection of system files, as well as scripts for setting up my devices
 2. Run relevant scripts in setup
 3. Open vim to autoinstall plugins
 
+# Notes
+
+- Dot files that would appear in ~ should also appear in ./
+- Scripts pertaining to changing settings should be in ./setup
+- Helper files should be grouped into folders
+- Programs should be located in ./utilities
+
 ## Links
 
 Useful information used in creating this repo
@@ -22,4 +29,5 @@ Useful information used in creating this repo
 - [vim options gui](http://apps.brrm.ru/vim-options/)
 - [monokai](https://github.com/sickill/vim-monokai)
 - [example vimrc](http://vim.wikia.com/wiki/Example_vimrc)
+
 
