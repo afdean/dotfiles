@@ -2,6 +2,14 @@
 " Description: Personal vimrc setup
 
 "------------------------------------------------------------
+" Initial setup {{{1
+" Anything that should be set first goes here
+
+" Ward off unexpected things that the distro might
+" have made, as well as sanely reset options when re-sourcing .vimrc
+set nocompatible
+
+"------------------------------------------------------------
 " Plugins {{{1
 " Using vim-plug to manage plugins, with auto-install from vimrc
 "
@@ -34,6 +42,9 @@ call plug#end()
 " Toggle NERDTree by default
 autocmd VimEnter * NERDTree
 
+" Toggle TagBar by default for files that support it (must have .FILETYPE)
+autocmd VimEnter * nested : call tagbar#autoopen(1)
+
 " Start cursor at file buffer instead of tree
 autocmd VimEnter * wincmd p
 
@@ -51,10 +62,6 @@ let g:vim_markdown_folding_disabled = 1
 " Functionality {{{1
 "
 " How does vim 'work'
-
-" Ward off unexpected things that the distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
-set nocompatible
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -85,6 +92,15 @@ set t_vb=
 set ignorecase
 set smartcase
 
+" Ensure unix formatting
+set encoding=utf-8
+
+" Faster operation
+set ttyfast
+
+" Make undo files for future edits
+set undofile
+
 "------------------------------------------------------------
 " User Interface {{{1
 "
@@ -92,6 +108,9 @@ set smartcase
 
 " Display a menu when tabbing vim commands
 set wildmenu
+
+" Make wildmenu behave as unix does
+set wildmode=list:longest
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -122,6 +141,12 @@ colo molokai
 " Make a column at 80th position
 set colorcolumn=80
 
+" Allow text wrapping
+set wrap
+
+" Wrap at column
+set textwidth=79
+
 " Show which line currently editing
 set cursorline
 
@@ -133,6 +158,18 @@ highlight LineNr ctermfg=white
 
 " Only redraw when we have to
 set lazyredraw
+
+" Display x lines above and below cursor when possible
+set scrolloff=3
+
+" Change line numbering to show what's relative
+set relativenumber
+
+" Show invisibles
+set list
+
+" Set invisibles to show
+set listchars=tab:▸\
 
 "------------------------------------------------------------
 " Usability/Editing {{{1
@@ -206,6 +243,16 @@ xnoremap <Left> <Nop>
 inoremap <Right> <Nop>
 noremap <Right> <Nop>
 xnoremap <Right> <Nop>
+
+" Clear highlights
+nnoremap <Leader><space> :noh<cr>
+
+" Fix regex patterns in vim
+" nnoremap / /\v
+" vnoremap / /\v
+
+" Remove trailing whitespace
+" nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "------------------------------------------------------------"
 
