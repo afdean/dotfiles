@@ -1,3 +1,20 @@
+#!/bin/bash
+
+# Author: Andrew Dean
+# Description: Personal Bash Profile
+
+# Get OS for conditional checks
+# This isn't robust towards ubuntu, simply a substitute for now
+if [ $(uname -s) == Linux ]
+then
+    currentos=ubuntu
+elif [ $(uname -s) == Darwin ]
+then
+    currentos=macos
+else
+    currentos=unknown
+fi
+
 # Enable git tab completion
 source ~/dotfiles/git/git-completion.bash
 
@@ -20,7 +37,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="$purple\u$teal \@$brown \!$green\$(__git_ps1)$blue \W $ $reset"
 
 # Set up aliases
-#   Utilities 
+#   Utilities
 alias checkstyle='java -jar ~/dotfiles/utilities/checkstyle-8.0-all.jar -c /sun_checks.xml'
 alias findbugs='java -jar ~/dotfiles/utilities/findbugs-3.0.1/lib/findbugs.jar -textui'
 alias tsl='~/dotfiles/utilities/tsl/tsl'
@@ -57,18 +74,19 @@ export GREP_COLOR="1;33"
 export GREP_OPTIONS="--color=auto"
 
 # Set PATH
-#    This is set for MacOS
-#    The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-export PATH=${JAVA_HOM}/bin:${PATH}
-export PATH=/opt/apache-maven-3.5.0/bin:$PATH
-#    This is set for Ubuntu
-# export JAVA_HOME="/usr/lib/jvm/default-java"
-# export PATH=$JAVA_HOME:$PATH
+if [ $currentos == "macos" ]
+then
+    PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+    export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+    export PATH=${JAVA_HOM}/bin:${PATH}
+    export PATH=/opt/apache-maven-3.5.0/bin:$PATH
+elif [ $currentos == "ubuntu" ]
+then
+    export JAVA_HOME="/usr/lib/jvm/default-java"
+    export PATH=$JAVA_HOME:$PATH
+fi
 export PATH
 
 # Git settings
-git config --global push.default upstream
-git config --global merge.conflictstyle diff3
-# The original version is saved in .bash_profile.pysave
+bash ~/dotfiles/setup/git.sh
+
