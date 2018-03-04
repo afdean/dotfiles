@@ -35,5 +35,6 @@ Temporary Items
 # Vim
 #
 
+# Undo files created by vim
 *.un
-
+*.un~
