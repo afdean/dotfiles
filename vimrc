@@ -1,7 +1,6 @@
 " Author: Andrew Dean
 " Description: Personal vimrc setup
 
-
 "------------------------------------------------------------
 " Plugins {{{1
 " Using vim-plug to manage plugins, with auto-install from vimrc
@@ -37,8 +36,15 @@ autocmd VimEnter * NERDTree
 " Start cursor at file buffer instead of tree
 autocmd VimEnter * wincmd p
 
+" Disable the need for 'a' when closing last buffer if nerdtree toggled
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
+    \ && b:NERDTree.isTabTree()) | q | endif
+
 " Set airline theme
 autocmd VimEnter * AirlineTheme deus
+
+" No folding from vim-markdown
+let g:vim_markdown_folding_disabled = 1
 
 "------------------------------------------------------------
 " Functionality {{{1
@@ -149,6 +155,9 @@ set mouse=a
 
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
+
+" Disable automatic comment insertion (needs separation b/c it's a string)
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "------------------------------------------------------------
 " Indentation options {{{1
