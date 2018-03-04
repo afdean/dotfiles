@@ -2,7 +2,7 @@
 # Description:  Git ignore file, with help from gitignore.io
 
 #----------------------------------------------------------------------------
-# macOS 
+# macOS
 #
 
 *.DS_Store
@@ -30,3 +30,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#----------------------------------------------------------------------------
+# Vim
+#
+
+*.un
+
