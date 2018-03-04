@@ -10,7 +10,7 @@ Collection of system files, as well as scripts for setting up my devices
 2. Run relevant scripts in setup
 3. Open vim to autoinstall plugins
 
-# Notes
+## Notes
 
 - Dot files that would appear in ~ should also appear in ./
 - Scripts pertaining to changing settings should be in ./setup
