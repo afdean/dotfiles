@@ -118,7 +118,7 @@ set number
 let t_co=256
 
 " Set colorscheme to monokai
-colo molokai
+colorscheme molokai
 
 " Make a column at 80th position
 set colorcolumn=80
