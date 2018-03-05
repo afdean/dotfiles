@@ -39,25 +39,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }"
 call plug#end()
 
-" Toggle NERDTree by default
-autocmd VimEnter * NERDTree
-
-" Toggle TagBar by default for files that support it (must have .FILETYPE)
-autocmd VimEnter * nested : call tagbar#autoopen(1)
-
-" Start cursor at file buffer instead of tree
-autocmd VimEnter * wincmd p
-
-" Disable the need for 'a' when closing last buffer if nerdtree toggled
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
-    \ && b:NERDTree.isTabTree()) | q | endif
-
-" Set airline theme
-autocmd VimEnter * AirlineTheme deus
-
-" No folding from vim-markdown
-let g:vim_markdown_folding_disabled = 1
-
 "------------------------------------------------------------
 " Functionality {{{1
 "
@@ -255,4 +236,26 @@ nnoremap <Leader><space> :noh<cr>
 " nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "------------------------------------------------------------"
+" Plugin Settings
+"
+" Place these settings at END OF FILE
+
+" Toggle NERDTree by default
+autocmd VimEnter * NERDTree
+
+" Start cursor at file buffer instead of tree
+autocmd VimEnter * wincmd p
+
+" Toggle TagBar by default for files that support it (must have .FILETYPE)
+autocmd VimEnter * nested : call tagbar#autoopen(1)
+
+" Set airline theme
+autocmd VimEnter * AirlineTheme deus
+
+" Disable the need for 'a' when closing last buffer if nerdtree toggled
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
+    \ && b:NERDTree.isTabTree()) | q | endif
+
+" No folding from vim-markdown
+let g:vim_markdown_folding_disabled = 1
 
