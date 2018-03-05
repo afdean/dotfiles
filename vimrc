@@ -107,14 +107,15 @@ set ruler
 set laststatus=2
 
 " Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
+" 'press <Enter> to continue'
 set cmdheight=2
 
 " Display line numbers on the left
 set number
 
 " Use all 256 colors in vim
-let g:rehash256 = 1
+" let g:rehash256 = 1
+let t_co=256
 
 " Set colorscheme to monokai
 colo molokai
