@@ -28,6 +28,7 @@ Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
+Plug 'sentientmachine/pretty-vim-python'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'bling/vim-airline'
@@ -82,6 +83,9 @@ set ttyfast
 " Make undo files for future edits
 set undofile
 
+" Remember vim command history past default
+set history=1000
+
 "------------------------------------------------------------
 " User Interface {{{1
 "
@@ -114,11 +118,8 @@ set cmdheight=2
 set number
 
 " Use all 256 colors in vim
-" let g:rehash256 = 1
+" Must set this before colorscheme
 let t_co=256
-
-" Set colorscheme to monokai
-colorscheme molokai
 
 " Make a column at 80th position
 set colorcolumn=80
@@ -152,6 +153,9 @@ set list
 
 " Set invisibles to show
 set listchars=tab:▸\
+
+" Give terminal a title
+set title
 
 "------------------------------------------------------------
 " Usability/Editing {{{1
@@ -206,7 +210,7 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" Use jj for escaping in insert instead of escape key
+" Use jk for escaping in insert instead of escape key
 inoremap jk <esc>
 
 " Change leader from \ to , for comfort
@@ -259,4 +263,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
 
 " No folding from vim-markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Set colorscheme to monokai
+colorscheme molokai
 
