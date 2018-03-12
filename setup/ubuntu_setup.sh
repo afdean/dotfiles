@@ -93,6 +93,7 @@ apt -y install dnscrypt-proxy
 apt -y install dolphin-emu
 apt -y install nautilus-dropbox
 apt -y install eclipse
+apt -y install exuberent-ctags
 apt -y install gnome-tweak-tool
 apt -y install filezilla
 apt -y install firefox

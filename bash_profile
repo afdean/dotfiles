@@ -19,6 +19,7 @@ fi
 source ~/dotfiles/git/git-completion.bash
 
 # Set up colors
+white="\e[255m"
 green="\[\033[0;32m\]"
 blue="\[\033[0;34m\]"
 purple="\[\033[0;35m\]"
@@ -33,8 +34,8 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
 # $color_name precedes anything that should use that color
-# Use spacing to display things cleaner
-export PS1="$purple\u$teal \@$brown \!$green\$(__git_ps1)$blue \W $ $reset"
+# Use spacing to display things cleaner on cmd line
+export PS1="$purple\u $teal\@ $brown\!$green\$(__git_ps1) $blue\W $ $reset"
 
 # Set up aliases
 #   Utilities

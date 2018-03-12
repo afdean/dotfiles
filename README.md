@@ -29,5 +29,6 @@ Useful information used in creating this repo
 - [vim options gui](http://apps.brrm.ru/vim-options/)
 - [monokai](https://github.com/sickill/vim-monokai)
 - [example vimrc](http://vim.wikia.com/wiki/Example_vimrc)
-
+- [awesome-vim](https://github.com/akrawchyk/awesome-vim)
+- [vimrctips](https://www.reddit.com/r/vim/wiki/vimrctips)
 
