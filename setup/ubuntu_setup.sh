@@ -5,7 +5,10 @@
 
 # Upon completion, will reboot
 # Should be run once with sudo privileges
+# Can run multiple times without problems, if needed
 # Remember to chmod +x
+# This is the very first thing to be run on a clean install
+# If problems with dependencies, run apt-get -f remove
 
 # ----------------------------------------------------------------------------
 # Update and Upgrade
@@ -44,7 +47,7 @@ add-apt-repository -y "deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave
 sh -c 'echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list'
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 # Cryptomator
-add-apt-repository ppa:sebastian-stenzel/cryptomator
+add-apt-repository -y ppa:sebastian-stenzel/cryptomator
 
 # Update all of the PPAs to be used
 apt update
@@ -60,6 +63,7 @@ apt -y install maven
 apt -y install python
 apt -y install python3
 apt -y install pip
+pip install --upgrade pip
 apt -y install r-base r-base-dev
 pip install certifi
 pip install django
@@ -88,6 +92,7 @@ apt -y install calibre
 apt -y install clonezilla
 apt -y install cryptomator
 apt -y install compizconfig-settings-manager
+apt -y install ctags
 apt -y install darktable
 apt -y install dnscrypt-proxy
 apt -y install dolphin-emu
@@ -117,8 +122,10 @@ apt -y install synaptic
 apt -y install timeshift
 apt -y install thunderbird
 apt -y install torbrowser-launcher
+apt -y install ubuntu-gnome-desktop
 apt -y install vagrant
 apt -y install veracrypt
+apt -y install vim
 apt -y install virtualbox
 apt -y install vlc
 apt -y install wine
