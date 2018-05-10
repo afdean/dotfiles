@@ -43,8 +43,13 @@ alias checkstyle='java -jar ~/dotfiles/utilities/checkstyle-8.0-all.jar -c /sun_
 alias findbugs='java -jar ~/dotfiles/utilities/findbugs-3.0.1/lib/findbugs.jar -textui'
 alias tsl='~/dotfiles/utilities/tsl/tsl --disable-data-collection'
 alias ipython='python -m IPython'
-
-alias ll='ls -lahG'
+if [ $currentos == "macos" ]
+then
+    alias ll='ls -lahG'
+elif [ $currentos == "ubuntu" ]
+then
+    alias ll='ls -lah --color=auto'
+fi
 alias home='cd ~'
 alias up='cd ..'
 alias h='history'
