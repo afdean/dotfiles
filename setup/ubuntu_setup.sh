@@ -158,10 +158,10 @@ apt -y install libavcodec-extra
 apt -y install gstreamer1.0-fluendo-mp3
 apt -y install gstreamer1.0-libav
 apt -y install gstreamer1.0-plugins-bad
-apy -y install gstreamer1.0-plugins-ugly
+apt -y install gstreamer1.0-plugins-ugly
 apt -y install oxideqt-codecs-extra
-apy -y install ttf-mscorefonts-installer
-apy -y install unrar
+apt -y install ttf-mscorefonts-installer
+apt -y install unrar
 
 # ----------------------------------------------------------------------------
 
