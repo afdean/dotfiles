@@ -154,7 +154,7 @@ apt -y install gstreamer1.0-plugins-bad
 apy -y install gstreamer1.0-plugins-ugly
 apt -y install oxideqt-codecs-extra
 apy -y install ttf-mscorefonts-installer
-apy -y insall unrar
+apy -y install unrar
 
 # ----------------------------------------------------------------------------
 

@@ -41,7 +41,7 @@ export PS1="$purple\u $teal\@ $brown\!$green\$(__git_ps1) $blue\W $ $reset"
 #   Utilities
 alias checkstyle='java -jar ~/dotfiles/utilities/checkstyle-8.0-all.jar -c /sun_checks.xml'
 alias findbugs='java -jar ~/dotfiles/utilities/findbugs-3.0.1/lib/findbugs.jar -textui'
-alias tsl='~/dotfiles/utilities/tsl/tsl'
+alias tsl='~/dotfiles/utilities/tsl/tsl --disable-data-collection'
 alias ipython='python -m IPython'
 
 alias ll='ls -lahG'
