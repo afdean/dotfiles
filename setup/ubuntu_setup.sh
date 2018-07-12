@@ -33,7 +33,7 @@ ver=$(lsb_release -sr); if [ $ver != "17.10" -a $ver != "17.04" -a $ver != "16.0
 echo "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
 wget -q http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/Release.key -O- | sudo apt-key add -
 # Mesa
-add-apt-repository -y ppa:ubuntu-x-swat/updates
+# add-apt-repository -y ppa:ubuntu-x-swat/updates
 # Timeshift
 apt-add-repository -y ppa:teejee2008/ppa
 # Veracrypt
