@@ -16,3 +16,6 @@
 
 # Disable automatically rearrange Spaces based on recent use
 defaults write com.apple.dock mru-spaces -bool false
+
+# Enable key repeats
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false

@@ -13,7 +13,7 @@ Collection of system files, as well as scripts for setting up my devices
 
 ## Notes
 
-- Dot files that would appear in ~ should also appear in ./
+- Dot files that would appear in ~ are in ./ without the preceding . character
 - Scripts pertaining to changing settings should be in ./setup
 - Helper files should be grouped into folders
 - Programs should be located in ./utilities
@@ -32,4 +32,3 @@ Useful information used in creating this repo
 - [example vimrc](http://vim.wikia.com/wiki/Example_vimrc)
 - [awesome-vim](https://github.com/akrawchyk/awesome-vim)
 - [vimrctips](https://www.reddit.com/r/vim/wiki/vimrctips)
-
