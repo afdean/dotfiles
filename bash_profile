@@ -29,13 +29,14 @@ dot_dir=~/dotfiles
 # Enable git tab completion
 source $dot_dir/git/git-completion.bash
 
-# Set up colors
+# Set up colors (0; means normal, 1; means bold)
 white="\e[255m"
-green="\[\033[0;32m\]"
-blue="\[\033[0;34m\]"
-purple="\[\033[0;35m\]"
-teal="\[\033[0;36m\]"
-brown="\[\033[0;31m\]"
+green="\[\033[1;32m\]"
+teal="\[\033[1;36m\]"
+purple="\[\033[1;35m\]"
+red="\[\033[1;31m\]"
+#blue="\[\033[0;34m\]"
+yellow="\[\033[1;33m\]"
 reset="\[\033[0m\]"
 
 # Change command prompt
@@ -46,7 +47,18 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\W' adds the name of the current directory
 # $color_name precedes anything that should use that color
 # Use spacing to display things cleaner on cmd line
-export PS1="$purple\u $teal\@ $brown\!$green\$(__git_ps1) $blue\W $ $reset"
+export PS1="$purple\u $red\@ $yellow\!$green\$(__git_ps1) $teal\W $ $reset"
+
+# Change lscolors
+if [ $currentos == "macos" ]
+then
+    # Order: dir, sym link, socket, pipe, executable, block special, 
+    #    character special, etc
+    # Colors: a black, b red, c green, d brown, e blue, f magenta, g cyan
+    #    h light grey, x default color
+    # Default: LSCOLORS=exfxcxdxbxegedabagacad
+    export LSCOLORS=GxFxCxDxBxegedabagaced
+fi
 
 # ----------------------------------------------------------------------------
 # Aliases
@@ -58,17 +70,33 @@ alias findbugs='java -jar ~/dotfiles/utilities/findbugs-3.0.1/lib/findbugs.jar -
 alias tsl='~/dotfiles/utilities/tsl/tsl --disable-data-collection'
 
 # Normal aliases
-alias ipython='python -m IPython'
 if [ $currentos == "macos" ]
 then
-    alias ll='ls -lahG'
+    alias ll='ls -lahGFP'
+    # Colored 'cat'
+    alias c='pygmentize -O style=monokai -f console256 -g'
 elif [ $currentos == "ubuntu" ]
 then
-    alias ll='ls -lah --color=auto'
+    alias ll='ls -lahFP --color=auto'
 fi
+
+alias ..='cd ../'
+alias ...='cd ../../'
+alias .2='cd ../../'
+alias .3='cd ../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../../'
+alias b='cd -'
+alias cask='brew cask'
 alias home='cd ~'
+alias o='open'
+alias oo='open .'
+alias ipython='python -m IPython'
+# Only list directories
+alias lsd='gls -l | grep "^d"'
 alias up='cd ..'
 alias h='history'
+alias v='vim'
 
 # Idiot proof aliases
 alias mv='mv -i'
@@ -85,6 +113,18 @@ alias guom='git pull origin master'
 alias gsom='git push origin master'
 alias gal='git add -A'
 alias gim='git commit'
+alias gl='git log'
+alias gs='git status'
+alias gc='git checkout'
+alias gcl='git clone'
+alias undopush="git push -f origin HEAD^:master"
+
+# Function aliases (keep separate and at end of aliases)
+if [ $currentos == "macos" ]
+then
+    cd() { builtin cd "$@"; ll; }
+    trash() { command mv "$@" ~/.Trash ; }
+fi
 
 # ----------------------------------------------------------------------------
 # History

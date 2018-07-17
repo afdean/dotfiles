@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Author: Andrew Dean
-# Description: Commands to have git setup once installed
+# Description: Configures git settings
 
 # ----------------------------------------------------------------------------
 # Config

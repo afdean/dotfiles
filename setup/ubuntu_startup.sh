@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Author: Andrew Dean
-# Description: This is a start up script to make sure certain settings get 
-# configured on boot 
+# Description: Startup script for ubuntu on boot
+
 # Add it to startup applications
 # Can run chmod +x on the file
 

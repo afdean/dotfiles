@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Author: Andrew Dean
-# Description: This is a script meant for a clean mac install to get brew packages
+# Description: Installs brew packages
 
 # Not meant to be run directly, but through a setup script
 

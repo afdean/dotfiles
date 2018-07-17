@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Author: Andrew Dean
-# Description: This is a script meant for a clean install of macOS
+# Description: Sets up clean mac install
 
 # Upon completion, will reboot
 # Should be run once with sudo privileges
 # Can run multiple times without problems, if needed
 # Remember to chmod +x
+# This is the very first thing to be run on a clean install
 
 # ----------------------------------------------------------------------------
 # Hardware and Functionality
