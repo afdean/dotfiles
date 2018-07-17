@@ -1,4 +1,4 @@
-# Dot Files
+# Dotfiles
 
 ## About
 
@@ -6,14 +6,14 @@ Collection of system files, as well as scripts for setting up my devices
 
 ## Usage
 
-1. Clone this to ~
-2. Run symlink.sh and specify files and folders to be linked in the script
+1. Clone this to ~ (must be in ~ to work)
+2. Run symlink.sh (specifies files and folders to be linked in ~)
 3. Run relevant scripts in setup
 4. Open vim to autoinstall plugins
 
 ## Notes
 
-- Dot files that would appear in ~ are in ./ without the preceding . character
+- Dot files that would appear in ~ are in ./ without the preceding "." character
 - Scripts pertaining to changing settings should be in ./setup
 - Helper files should be grouped into folders
 - Programs should be located in ./utilities

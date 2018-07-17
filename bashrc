@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Author: Andrew Dean
+# Description: Personal Bashrc
+
+# ----------------------------------------------------------------------------
+# Setup
+#
+
 # Source bash profile
 if [ -f ~/.bash_profile ]; then
     source ~/.bash_profile

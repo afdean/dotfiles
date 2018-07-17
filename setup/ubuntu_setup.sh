@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Author: Andrew Dean
-# Description: This is a script meant for a clean install of ubuntu using GNOME
+# Description: Sets up clean install of ubuntu using GNOME
 
 # Upon completion, will reboot
 # Should be run once with sudo privileges
@@ -23,31 +23,26 @@ apt -y install snapd
 # PPAs
 #
 
-## Third Party
-# Android Studio
-add-apt-repository -y ppa:maarten-fonville/android-studio
-# Atom
-add-apt-repository -y ppa:webupd8team/atom
+repos="ppa:maarten-fonville/android-studio ppa:webupd8team/atom 
+    ppa:teejee2008/ppa ppa:sebastian-stenzel/cryptomator"
+
+for repo in $repos; do
+    echo "Adding $repo"
+    add-apt-repository -y $pkg
+done
+
 # Lutris
 ver=$(lsb_release -sr); if [ $ver != "17.10" -a $ver != "17.04" -a $ver != "16.04" ]; then ver=16.04; fi
 echo "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
 wget -q http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/Release.key -O- | sudo apt-key add -
-# Mesa
-# add-apt-repository -y ppa:ubuntu-x-swat/updates
-# Timeshift
-apt-add-repository -y ppa:teejee2008/ppa
-# Veracrypt
-add-apt-repository -y ppa:unit193/encryption
 
-## Official
 # Brave
 wget -qO - https://s3-us-west-2.amazonaws.com/brave-apt/keys.asc | sudo apt-key add -
 add-apt-repository -y "deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave-apt xenial main"
+
 # Spotify
 sh -c 'echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list'
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-# Cryptomator
-add-apt-repository -y ppa:sebastian-stenzel/cryptomator
 
 # Update all of the PPAs to be used
 apt update
@@ -56,79 +51,46 @@ apt update
 # Programming
 #
 
+coding_pkg="ant git maven python python3 pip"
+
 # Using default openjdk for java
-apt -y install ant
-apt -y install git
-apt -y install maven
-apt -y install python
-apt -y install python3
-apt -y install pip
-pip install --upgrade pip
+for pkg in $coding_pkg; do
+    echo "Installing $pkg"
+    apt -y install $pkg
+done
+
 apt -y install r-base r-base-dev
-pip install certifi
-pip install django
-pip install matplotlib
-pip install numpy
-pip install pandas
-pip install pylint
-pip install scikit-learn
-pip install scipy
-pip install uncompyle2
-pip install virtualenv
+
+# Pip installs
+sh ./pip.sh
+
+# Git settings
+sh ./git.sh
 
 # ----------------------------------------------------------------------------
 # Software
 #
 
-apt -y install android-studio
-apt -y install anki
-apt -y install ardour
-apt -y install atom
-apt -y install audacity
-apt -y install bleachbit
-apt -y install blender
-apt -y install brave
-apt -y install calibre
-apt -y install clonezilla
-apt -y install cryptomator
-apt -y install compizconfig-settings-manager
-apt -y install ctags
-apt -y install darktable
-apt -y install dnscrypt-proxy
-apt -y install dolphin-emu
-apt -y install nautilus-dropbox
-apt -y install eclipse
-apt -y install exuberent-ctags
-apt -y install gnome-tweak-tool
-apt -y install filezilla
-apt -y install firefox
-apt -y install handbrake
-snap install keepassxc
-apt -y install krita
-apt -y install libreoffice
-apt -y install lutris
-apt -y install lxrandr
-apt -y install musescore
-apt -y install octave
-apt -y install openvpn
-apt -y install playonlinux
-apt -y install psensor
-apt -y install puredata
-apt -y install qbittorrent
-apt -y install rkhunter
-apt -y install spotify-client
-apt -y install steam
-apt -y install synaptic
-apt -y install timeshift
-apt -y install thunderbird
-apt -y install torbrowser-launcher
-apt -y install ubuntu-gnome-desktop
-apt -y install vagrant
-apt -y install veracrypt
-apt -y install vim
-apt -y install virtualbox
-apt -y install vlc
-apt -y install wine
+apt_software="android-studio anki ardour atom audacity bleachbit blender brave
+    calibre clonezilla cryptomator compizconfig-settings-manager ctags
+    darktable dnscrypt-proxy dolphin-emu eclipse exuberent-ctags
+    gnome-tweak-tool filezilla firefox handbrake krita libreoffice
+    lutris lxrandr musescore nautilus-dropbox octave openvpn playonlinux
+    psensor puredata qbittorrent rkhunter spotify-client steam synaptic
+    thunderbird timeshift torbrowser-launcher ubuntu-gnome-desktop vagrant
+    veracrypt vim virtualbox vlc wine"
+
+snap_software="keepassxc"
+
+for soft in $apt_software; do
+    echo "Installing $soft"
+    apt -y install $soft
+done
+
+for soft in $snap_software; do
+    echo "Installing $soft"
+    yes | snap install $soft
+done
 
 # ----------------------------------------------------------------------------
 # Ubuntu Studio
@@ -136,17 +98,22 @@ apt -y install wine
 # Info pulled from https://help.ubuntu.com/community/UbuntuStudioPreparation:w
 # Be aware, info might be outdated
 
-apt -y install jackd
-apt -y install libffado2
-apt -y install linux-lowlatency
-apt -y install qjackctl
+studio_software="jackd libffado2 linux-lowlatency qjackctl"
 
-## Firewire specific setup
+for soft in $studio_software; do
+    echo "Installing $soft"
+    apt -y install $soft
+done
+
+## Firewire setup
 adduser $USER audio
-apt -y install ffado-mixer-qt4
-apt -y install jackd2-firewire
-apt -y install pulseaudio-module-jack
-apt -y install patchage
+firewire_software="ffado-mixer-qt4 jackd2-firewire pulseaudio-module-jack 
+    patchage"
+
+for soft in $firewire_software; do
+    echo "Installing $soft"
+    apt -y install $soft
+done
 
 # ----------------------------------------------------------------------------
 # Restricted Extras
@@ -154,14 +121,14 @@ apt -y install patchage
 # https://packages.ubuntu.com/en/xenial/ubuntu-restricted-extras
 # Will need to be updated for future versions
 
-apt -y install libavcodec-extra
-apt -y install gstreamer1.0-fluendo-mp3
-apt -y install gstreamer1.0-libav
-apt -y install gstreamer1.0-plugins-bad
-apt -y install gstreamer1.0-plugins-ugly
-apt -y install oxideqt-codecs-extra
-apt -y install ttf-mscorefonts-installer
-apt -y install unrar
+restrict_software="libavcodec-extra gstreamer1.0-fluendo-mp3 gstreamer1.0-libav
+    gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly oxideqt-codecs-extra
+    ttf-mscorefonts-installer unrar"
+
+for soft in $firewire_software; do
+    echo "Installing $soft"
+    apt -y install $soft
+done
 
 # ----------------------------------------------------------------------------
 

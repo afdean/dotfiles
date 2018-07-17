@@ -3,6 +3,10 @@
 # Author: Andrew Dean
 # Description: Personal Bash Profile
 
+# ----------------------------------------------------------------------------
+# Variables
+#
+
 # Get OS for conditional checks
 # This isn't robust towards ubuntu, simply a substitute for now
 if [ $(uname -s) == Linux ]
@@ -15,8 +19,15 @@ else
     currentos=unknown
 fi
 
+# Directories
+dot_dir=~/dotfiles
+
+# ----------------------------------------------------------------------------
+# Terminal Appearance
+#
+
 # Enable git tab completion
-source ~/dotfiles/git/git-completion.bash
+source $dot_dir/git/git-completion.bash
 
 # Set up colors
 white="\e[255m"
@@ -28,7 +39,7 @@ brown="\[\033[0;31m\]"
 reset="\[\033[0m\]"
 
 # Change command prompt
-source ~/dotfiles/git/git-prompt.sh
+source $dot_dir/git/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
@@ -37,11 +48,16 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # Use spacing to display things cleaner on cmd line
 export PS1="$purple\u $teal\@ $brown\!$green\$(__git_ps1) $blue\W $ $reset"
 
-# Set up aliases
-#   Utilities
+# ----------------------------------------------------------------------------
+# Aliases
+#
+
+# Utilities
 alias checkstyle='java -jar ~/dotfiles/utilities/checkstyle-8.0-all.jar -c /sun_checks.xml'
 alias findbugs='java -jar ~/dotfiles/utilities/findbugs-3.0.1/lib/findbugs.jar -textui'
 alias tsl='~/dotfiles/utilities/tsl/tsl --disable-data-collection'
+
+# Normal aliases
 alias ipython='python -m IPython'
 if [ $currentos == "macos" ]
 then
@@ -53,7 +69,8 @@ fi
 alias home='cd ~'
 alias up='cd ..'
 alias h='history'
-#    Idiot proof aliases
+
+# Idiot proof aliases
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
@@ -62,24 +79,35 @@ alias du='du -h'
 alias mkdir='mkdir -p'
 alias grep='grep -E'
 alias sed='sed -E'
-#    Git aliases
+
+# Git aliases
 alias guom='git pull origin master'
 alias gsom='git push origin master'
 alias gal='git add -A'
 alias gim='git commit'
 
-# Set up history settings
+# ----------------------------------------------------------------------------
+# History
+#
+
 export HISTSIZE=10000                   # 500 is default...
 export HISTFILESIZE=1000000
 export HISTTIMEFORMAT='%b %d %I:%M %p ' # Uses strftime format
 export HISTCONTROL=ignoreboth           # ignoredups:ignorespace
 export HISTIGNORE="history:h:pwd:exit:df:ls:ls -la:ll:ls -a:"
 
-# Set up GREP settings (order is text style, text color, text background color)
+# ----------------------------------------------------------------------------
+# Grep
+#
+
+# order is text style, text color, text background color)
 export GREP_COLOR="1;33"
 export GREP_OPTIONS="--color=auto"
 
-# Set PATH
+# ----------------------------------------------------------------------------
+# Path
+#
+
 if [ $currentos == "macos" ]
 then
     PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
@@ -92,7 +120,3 @@ then
     export PATH=$JAVA_HOME:$PATH
 fi
 export PATH
-
-# Git settings
-bash ~/dotfiles/setup/git.sh
-
