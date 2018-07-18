@@ -13,16 +13,76 @@
 # Hardware and Functionality
 #
 
-# Enable tap click
-sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# Use "defaults read > defaults.txt" in order to find most of these
+# Can check for new ones by using a diff before and after changes
 
-# Disable automatically rearrange Spaces based on recent use
-defaults write com.apple.dock mru-spaces -bool false
+### Trackpad
+# Right click behavior
+defaults write "Apple Global Domain" ContextMenuGesture 1
+# Swipe direction behavior ("unnatural")
+defaults write "Apple Global Domain" com.apple.swipescrolldirection 0
+# Clicking and draglock (from accessibility settings)
+defaults write com.apple.AppleMultitouchTrackpad Clicking 1
+defaults write com.apple.AppleMultitouchTrackpad DragLock 1
+defaults write com.apple.AppleMultitouchTrackpad Dragging 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad DragLock 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging 1
+# Enable required gestures
+defaults write com.apple.dock showAppExposeGestureEnabled 1
+defaults write com.apple.dock showDesktopGestureEnabled 1
+defaults write com.apple.dock showLaunchpadGestureEnabled 1
+defaults write com.apple.dock showMissionControlGestureEnabled 1
+# 4/5 finger launchpad
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture 2
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture 2
+# 4 finger horizontal swipe between screens
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture 2
+# 3/4 finger vertical swipe mission control and app expose
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture 2
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture 2
+# 2 finger right click
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
+# 2 finger notification center
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture 3
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture 3
 
+
+### Keyboard
 # Enable key repeats
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+### Finder
+# Show hidden files by default"
+defaults write com.apple.finder AppleShowAllFiles -bool true
+# Show all filename extensions"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# Use list view in all Finder windows by default"
+# Four-letter codes for the other view modes: icnv, clmv, Flwv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+### Functionality
+# Disable automatically rearrange Spaces based on recent use
+defaults write com.apple.dock mru-spaces -bool false
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+# Automatically hide and show the Dock"
+defaults write com.apple.dock autohide -bool true
+# Set dock on left side
+defaults write com.apple.dock orientation left
+# Set dock size
+defaults write com.apple.dock tilesize 40
+
+### Privacy
+# Don’t send search queries to Apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
 # ----------------------------------------------------------------------------
 # Software
