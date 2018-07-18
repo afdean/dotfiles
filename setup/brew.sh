@@ -36,3 +36,4 @@ brew link python
 brew update
 brew upgrade
 brew cleanup
+brew analytics off

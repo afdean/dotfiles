@@ -53,7 +53,6 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture 3
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture 3
 
-
 ### Keyboard
 # Enable key repeats
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -78,11 +77,14 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock orientation left
 # Set dock size
 defaults write com.apple.dock tilesize 40
+# Disable dashboard
+defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock
 
 ### Privacy
 # Don’t send search queries to Apple
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
 defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
 
 # ----------------------------------------------------------------------------
 # Software
@@ -103,11 +105,22 @@ sh ./pip.sh
 # Git settings
 sh ./git.sh
 
+# Brew Cask nstalls
+sh ./brew_cask.sh
+
 # Reboot for changes
 reboot
 
 # ----------------------------------------------------------------------------
-# Manually
+# Manually (can't automate easily)
 #
 
 # Switch caps and ctrl modifier key
+# Disable automatic login and user lists
+# Disable password hints
+# Disable guest account and sharing
+# Require password immediately after sleep/screensaver
+# Firewall on
+# All analytics off (share mac, share with app dev, etc)
+# Firevault on
+# Disable all spotlight searching
