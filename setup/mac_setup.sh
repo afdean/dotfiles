@@ -3,15 +3,16 @@
 # Author: Andrew Dean
 # Description: Sets up clean mac install
 
+# Notes:
 # Upon completion, will reboot
 # Should be run once with sudo privileges
 # Can run multiple times without problems, if needed
 # Remember to chmod +x
 # This is the very first thing to be run on a clean install
 
-# ----------------------------------------------------------------------------
-# Hardware and Functionality
-#
+###############################################################################
+# HARDWARE AND FUNCTIONALITY
+###############################################################################
 
 # Use "defaults read > defaults.txt" in order to find most of these
 # Can check for new ones by using a diff before and after changes
@@ -46,6 +47,10 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGes
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture 2
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture 2
+# 3 finger horizontal page swipe
+defaults write "Apple Global Domain" AppleEnableSwipeNavigateWithScrolls 0
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture 1
 # 2 finger right click
 defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
@@ -85,10 +90,9 @@ defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
 defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
-
-# ----------------------------------------------------------------------------
-# Software
-#
+###############################################################################
+# SOFTWARE
+###############################################################################
 
 # Install xcode
 xcode-select --install
@@ -111,9 +115,9 @@ sh ./brew_cask.sh
 # Reboot for changes
 reboot
 
-# ----------------------------------------------------------------------------
-# Manually (can't automate easily)
-#
+###############################################################################
+# MANUALLY (can't automate easily)
+###############################################################################
 
 # Switch caps and ctrl modifier key
 # Disable automatic login and user lists

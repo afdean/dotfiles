@@ -3,18 +3,18 @@
 # Author: Andrew Dean (borrowed and edited)
 # Description: Creates symlinks from ~ to dotfiles
 
-# ----------------------------------------------------------------------------
-# Variables 
-#
+###############################################################################
+# VARIABLES
+###############################################################################
 
 dir=~/dotfiles
 # Backup dir
 olddir=~/dotfiles_old
 files="gitignore vimrc vim bash_profile bashrc"
 
-# ----------------------------------------------------------------------------
-# Script
-#
+###############################################################################
+# SCRIPT
+###############################################################################
 
 # Create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"

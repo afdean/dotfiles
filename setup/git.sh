@@ -3,9 +3,9 @@
 # Author: Andrew Dean
 # Description: Configures git settings
 
-# ----------------------------------------------------------------------------
-# Config
-#
+###############################################################################
+# CONFIG
+###############################################################################
 
 git config --global core.excludesfile ~/.gitignore
 git config --global user.name "Andrew Dean"

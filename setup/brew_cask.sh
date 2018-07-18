@@ -3,16 +3,18 @@
 # Author: Andrew Dean
 # Description: Installs brew cask packages
 
+# Notes:
 # Not meant to be run directly, but through a setup script
 
-# ----------------------------------------------------------------------------
-# Update and Upgrade
-#
+###############################################################################
+# UPDATE AND UPGRADE
+###############################################################################
+
 brew cask upgrade
 
-# ----------------------------------------------------------------------------
-# Install Packages
-#
+###############################################################################
+# INSTALL PACKAGES
+###############################################################################
 
 packages="ableton-live-standard android-studio anki atom battle-net blender
     brave calibre cryptomator darktable discord dnscrypt dolphin dropbox duet
@@ -26,8 +28,9 @@ for pkg in $packages; do
     yes | brew cask install $pkg
 done
 
-# ----------------------------------------------------------------------------
-# Clean Up
-#
+###############################################################################
+# CLEANUP
+###############################################################################
+
 brew cask upgrade
 brew cask cleanup

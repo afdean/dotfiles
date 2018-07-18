@@ -3,6 +3,7 @@
 # Author: Andrew Dean
 # Description: Sets up clean install of ubuntu using GNOME
 
+# Notes:
 # Upon completion, will reboot
 # Should be run once with sudo privileges
 # Can run multiple times without problems, if needed
@@ -10,18 +11,18 @@
 # This is the very first thing to be run on a clean install
 # If problems with dependencies, run apt-get -f remove
 
-# ----------------------------------------------------------------------------
-# Update and Upgrade
-#
+###############################################################################
+# UPDATE AND UPGRADE
+###############################################################################
 
 apt update
 apt -y upgrade
 apt -y dist-upgrade
 apt -y install snapd
 
-# ----------------------------------------------------------------------------
+###############################################################################
 # PPAs
-#
+###############################################################################
 
 repos="ppa:maarten-fonville/android-studio ppa:webupd8team/atom 
     ppa:teejee2008/ppa ppa:sebastian-stenzel/cryptomator"
@@ -47,9 +48,9 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BBEBDCB318AD50EC6865090
 # Update all of the PPAs to be used
 apt update
 
-# ----------------------------------------------------------------------------
-# Programming
-#
+###############################################################################
+# PROGRAMMING
+###############################################################################
 
 coding_pkg="ant git maven python python3 pip"
 
@@ -67,9 +68,9 @@ sh ./pip.sh
 # Git settings
 sh ./git.sh
 
-# ----------------------------------------------------------------------------
-# Software
-#
+###############################################################################
+# SOFTWARE
+###############################################################################
 
 apt_software="android-studio anki ardour atom audacity bleachbit blender brave
     calibre clonezilla cryptomator compizconfig-settings-manager ctags
@@ -92,8 +93,10 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# ----------------------------------------------------------------------------
-# Ubuntu Studio
+###############################################################################
+# UBUNTU STUDIO
+###############################################################################
+
 # Sets Ubuntu up to handle audio work
 # Info pulled from https://help.ubuntu.com/community/UbuntuStudioPreparation:w
 # Be aware, info might be outdated
@@ -115,8 +118,10 @@ for soft in $firewire_software; do
     apt -y install $soft
 done
 
-# ----------------------------------------------------------------------------
-# Restricted Extras
+###############################################################################
+# RESTRICTED EXTRAS
+###############################################################################
+
 # Based upon 16.04(xenial) package except without flash
 # https://packages.ubuntu.com/en/xenial/ubuntu-restricted-extras
 # Will need to be updated for future versions
@@ -130,9 +135,9 @@ for soft in $firewire_software; do
     apt -y install $soft
 done
 
-# ----------------------------------------------------------------------------
-
-# Final
+###############################################################################
+# CLEANUP
+###############################################################################
 
 # Set wallpaper
 gsettings set org.gnome.desktop.background picture-uri file:////~/docfiles/wallpaper/dual_wallpaper.jpg
@@ -144,8 +149,9 @@ apt -y dist-upgrade
 apt -y autoremove
 reboot
 
-# ----------------------------------------------------------------------------
-# Unfinished
+###############################################################################
+# UNFINISHED
+###############################################################################
 
 # Enable Ubuntu universe ppa
 # ?
