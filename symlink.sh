@@ -10,7 +10,7 @@
 dir=~/dotfiles
 # Backup dir
 olddir=~/dotfiles_old
-files="gitignore vimrc vim bash_profile bashrc"
+files="bash_profile bashrc editorconfig gitignore vimrc vim"
 
 ###############################################################################
 # SCRIPT
