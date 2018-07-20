@@ -15,8 +15,19 @@ pip install --upgrade
 # INSTALL PACKAGES
 ###############################################################################
 
-packages="certifi Django matplotlib numpy pandas Pygments pylint scikit-learn
-    scipy uncompyle2 virtualenv"
+packages="
+    certifi
+    Django
+    matplotlib
+    numpy
+    pandas
+    Pygments
+    pylint
+    scikit-learn
+    scipy
+    uncompyle2
+    virtualenv
+"
 
 for pkg in $packages; do
     echo "Installing $pkg"

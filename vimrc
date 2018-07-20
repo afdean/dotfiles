@@ -24,6 +24,7 @@ endif
 " Install individual plugins
 call plug#begin('~/.vim/plugged')
 Plug 'kien/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'

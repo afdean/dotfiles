@@ -21,3 +21,11 @@ trim_trailing_whitespace = false
 
 [*.html]
 indent_size = 2
+
+###############################################################################
+# UNSET
+###############################################################################
+
+# Line ruler at 80
+# Enable invisible characters
+# Monokai theme

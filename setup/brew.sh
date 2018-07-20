@@ -17,8 +17,21 @@ brew upgrade
 # INSTALL PACKAGES
 ###############################################################################
 
-packages="ant bash-completion2 coreutils ctags gcc ghostscript maven 
-    octave python python3 ruby texinfo tidy-html5"
+packages="
+    ant
+    bash-completion2
+    coreutils
+    ctags
+    gcc
+    ghostscript
+    maven
+    octave
+    python
+    python3
+    ruby
+    texinfo
+    tidy-html5
+"
 
 brew install vim --with-override-system-vi
 

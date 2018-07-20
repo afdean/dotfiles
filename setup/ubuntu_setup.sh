@@ -24,8 +24,12 @@ apt -y install snapd
 # PPAs
 ###############################################################################
 
-repos="ppa:maarten-fonville/android-studio ppa:webupd8team/atom 
-    ppa:teejee2008/ppa ppa:sebastian-stenzel/cryptomator"
+repos="
+    ppa:maarten-fonville/android-studio
+    ppa:webupd8team/atom
+    ppa:teejee2008/ppa
+    ppa:sebastian-stenzel/cryptomator
+"
 
 for repo in $repos; do
     echo "Adding $repo"
@@ -52,7 +56,14 @@ apt update
 # PROGRAMMING
 ###############################################################################
 
-coding_pkg="ant git maven python python3 pip"
+coding_pkg="
+    ant
+    git
+    maven
+    python
+    python3
+    pip
+"
 
 # Using default openjdk for java
 for pkg in $coding_pkg; do
@@ -72,16 +83,59 @@ sh ./git.sh
 # SOFTWARE
 ###############################################################################
 
-apt_software="android-studio anki ardour atom audacity bleachbit blender brave
-    calibre clonezilla cryptomator compizconfig-settings-manager ctags
-    darktable dnscrypt-proxy dolphin-emu eclipse exuberent-ctags
-    gnome-tweak-tool filezilla firefox handbrake krita libreoffice
-    lutris lxrandr musescore nautilus-dropbox octave openvpn playonlinux
-    psensor puredata qbittorrent rkhunter spotify-client steam synaptic
-    thunderbird timeshift torbrowser-launcher ubuntu-gnome-desktop vagrant
-    veracrypt vim virtualbox vlc wine"
+apt_software="
+    android-studio
+    anki
+    ardour
+    atom
+    audacity
+    bleachbit
+    blender
+    brave
+    calibre
+    clonezilla
+    cryptomator
+    compizconfig-settings-manager
+    ctags
+    darktable
+    dnscrypt-proxy
+    dolphin-emu eclipse
+    exuberent-ctags
+    gnome-tweak-tool
+    filezilla
+    firefox
+    handbrake
+    krita
+    libreoffice
+    lutris
+    lxrandr
+    musescore
+    nautilus-dropbox
+    octave
+    openvpn
+    playonlinux
+    psensor
+    puredata
+    qbittorrent
+    rkhunter
+    spotify-client
+    steam
+    synaptic
+    thunderbird
+    timeshift
+    torbrowser-launcher
+    ubuntu-gnome-desktop
+    vagrant
+    veracrypt
+    vim
+    virtualbox
+    vlc
+    wine
+"
 
-snap_software="keepassxc"
+snap_software="
+    keepassxc
+"
 
 for soft in $apt_software; do
     echo "Installing $soft"
@@ -101,7 +155,12 @@ done
 # Info pulled from https://help.ubuntu.com/community/UbuntuStudioPreparation:w
 # Be aware, info might be outdated
 
-studio_software="jackd libffado2 linux-lowlatency qjackctl"
+studio_software="
+    jackd
+    libffado2
+    linux-lowlatency
+    qjackctl
+"
 
 for soft in $studio_software; do
     echo "Installing $soft"
@@ -110,8 +169,12 @@ done
 
 ## Firewire setup
 adduser $USER audio
-firewire_software="ffado-mixer-qt4 jackd2-firewire pulseaudio-module-jack 
-    patchage"
+firewire_software="
+    ffado-mixer-qt4
+    jackd2-firewire
+    pulseaudio-module-jack
+    patchage
+"
 
 for soft in $firewire_software; do
     echo "Installing $soft"
@@ -126,9 +189,15 @@ done
 # https://packages.ubuntu.com/en/xenial/ubuntu-restricted-extras
 # Will need to be updated for future versions
 
-restrict_software="libavcodec-extra gstreamer1.0-fluendo-mp3 gstreamer1.0-libav
-    gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly oxideqt-codecs-extra
-    ttf-mscorefonts-installer unrar"
+restrict_software="
+    libavcodec-extra
+    gstreamer1.0-fluendo-mp3
+    gstreamer1.0-libav
+    gstreamer1.0-plugins-bad
+    gstreamer1.0-plugins-ugly
+    oxideqt-codecs-extra
+    ttf-mscorefonts-installer unrar
+"
 
 for soft in $firewire_software; do
     echo "Installing $soft"

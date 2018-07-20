@@ -3,6 +3,9 @@
 # Author: Andrew Dean (borrowed and edited)
 # Description: Creates symlinks from ~ to dotfiles
 
+# Notes:
+# Can run multiple times without problems, if needed (backs up old files)
+
 ###############################################################################
 # VARIABLES
 ###############################################################################
@@ -10,7 +13,14 @@
 dir=~/dotfiles
 # Backup dir
 olddir=~/dotfiles_old
-files="bash_profile bashrc editorconfig gitignore vimrc vim"
+files="
+    bash_profile
+    bashrc
+    editorconfig
+    gitignore
+    vimrc
+    vim
+"
 
 ###############################################################################
 # SCRIPT
@@ -27,7 +37,7 @@ cd $dir
 echo "...done"
 
 # Move any existing dotfiles in homedir to dotfiles_old directory
-# Then create symlinks 
+# Then create symlinks
 for file in $files; do
     echo "Moving $file from ~ to $olddir if it exists"
     mv ~/.$file ~/dotfiles_old/
