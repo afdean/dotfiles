@@ -13,6 +13,3 @@ Anything left to figure out in setting up this repo for automation
 - [] Timeshift backups
 - [] Tweak tool settings
 - [] Install GNOME extensions
-
-### Firefox 
-- [] Sync custom about:config or prefs.js
