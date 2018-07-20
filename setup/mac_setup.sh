@@ -116,7 +116,7 @@ sh ./brew_cask.sh
 reboot
 
 ###############################################################################
-# MANUALLY (can't automate easily)
+# MANUALLY (can't automate easily or at all)
 ###############################################################################
 
 # Switch caps and ctrl modifier key

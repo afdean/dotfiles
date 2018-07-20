@@ -52,7 +52,7 @@ export PS1="$purple\u $red\@ $yellow\!$green\$(__git_ps1) $teal\W $ $reset"
 # Change lscolors
 if [ $currentos == "macos" ]
 then
-    # Order: dir, sym link, socket, pipe, executable, block special, 
+    # Order: dir, sym link, socket, pipe, executable, block special,
     #    character special, etc
     # Colors: a black, b red, c green, d brown, e blue, f magenta, g cyan
     #    h light grey, x default color
@@ -67,7 +67,13 @@ fi
 # Utilities
 alias checkstyle='java -jar ~/dotfiles/utilities/checkstyle-8.0-all.jar -c /sun_checks.xml'
 alias findbugs='java -jar ~/dotfiles/utilities/findbugs-3.0.1/lib/findbugs.jar -textui'
-alias tsl='~/dotfiles/utilities/tsl/tsl --disable-data-collection'
+if [ $currentos == "macos" ]
+then
+    alias tsl='~/dotfiles/utilities/tsl_mac --disable-data-collection'
+elif [ $currentos == "ubuntu" ]
+then
+    alias tsl='~/dotfiles/utilities/tsl_linux --disable-data-collection'
+fi
 
 # Normal aliases
 if [ $currentos == "macos" ]

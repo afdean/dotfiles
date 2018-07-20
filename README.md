@@ -32,3 +32,4 @@ Useful information used in creating this repo
 - [example vimrc](http://vim.wikia.com/wiki/Example_vimrc)
 - [awesome-vim](https://github.com/akrawchyk/awesome-vim)
 - [vimrctips](https://www.reddit.com/r/vim/wiki/vimrctips)
+- [gitignore](https://www.gitignore.io/)

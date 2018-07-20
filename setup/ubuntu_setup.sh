@@ -217,32 +217,3 @@ apt -y upgrade
 apt -y dist-upgrade
 apt -y autoremove
 reboot
-
-###############################################################################
-# UNFINISHED
-###############################################################################
-
-# Enable Ubuntu universe ppa
-# ?
-
-# Fixubuntu recommendations
-# ?
-
-# Use LXrandr to set up monitors correctly
-# ?
-
-# Add dotfiles/ubuntu_startup.sh to startup apps
-# ?
-
-# Timeshift backups
-# ?
-
-# Use custom about:config for firefox
-# ?
-
-# Tweak tool things
-# ?
-
-# Install GNOME extensions
-# ?
-#

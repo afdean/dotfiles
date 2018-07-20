@@ -52,6 +52,7 @@ packages="
     soundflower
     spotify
     steam
+    the-unarchiver
     thunderbird
     torbrowser
     unity
