@@ -26,6 +26,9 @@ indent_size = 2
 # UNSET
 ###############################################################################
 
-# Line ruler at 80
+# Set line ruler at 80
 # Enable invisible characters
-# Monokai theme
+# Use monokai theme
+# Exclude certain files from explorer
+# Disable any telemetry
+# Enable soft wrap for HTML

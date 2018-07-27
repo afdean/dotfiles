@@ -53,11 +53,13 @@ export PS1="$purple\u $red\@ $yellow\!$green\$(__git_ps1) $teal\W $ $reset"
 if [ $currentos == "macos" ]
 then
     # Order: dir, sym link, socket, pipe, executable, block special,
-    #    character special, etc
-    # Colors: a black, b red, c green, d brown, e blue, f magenta, g cyan
-    #    h light grey, x default color
+    #    character special, executable with setuid bit set,
+    #    executable with setgid bit set,
+    #    directory writable to others (sticky bit), directory writable to others
+    # Colors (pairs): a black, b red, c green, d brown, e blue, f magenta,
+    #    g cyan, h light grey, x default foreground/background
     # Default: LSCOLORS=exfxcxdxbxegedabagacad
-    export LSCOLORS=GxFxCxDxBxegedabagaced
+    export LSCOLORS=GxFxCxDxBxegedabagacEd
 fi
 
 ###############################################################################
@@ -94,6 +96,7 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../../'
 alias b='cd -'
 alias cask='brew cask'
+alias h='history'
 alias home='cd ~'
 alias o='open'
 alias oo='open .'
@@ -101,7 +104,6 @@ alias ipython='python -m IPython'
 # Only list directories
 alias lsd='gls -l | grep "^d"'
 alias up='cd ..'
-alias h='history'
 alias v='vim'
 
 # Idiot proof aliases
@@ -115,14 +117,14 @@ alias grep='grep -E'
 alias sed='sed -E'
 
 # Git aliases
-alias guom='git pull origin master'
-alias gsom='git push origin master'
 alias gal='git add -A'
+alias gc='git checkout'
+alias gcl='git clone'
 alias gim='git commit'
 alias gl='git log'
 alias gs='git status'
-alias gc='git checkout'
-alias gcl='git clone'
+alias guom='git pull origin master'
+alias gsom='git push origin master'
 alias undopush="git push -f origin HEAD^:master"
 
 # Function aliases (keep separate and at end of aliases)

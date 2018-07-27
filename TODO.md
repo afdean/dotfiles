@@ -13,3 +13,8 @@ Anything left to figure out in setting up this repo for automation
 - [] Timeshift backups
 - [] Tweak tool settings
 - [] Install GNOME extensions
+
+### vim
+
+- [] Finish cheat sheet
+- [] Softwrap for certain files

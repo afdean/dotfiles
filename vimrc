@@ -158,6 +158,18 @@ set listchars=tab:▸\
 " Give terminal a title
 set title
 
+" Fold via indents
+set foldmethod=indent
+
+" Don't automatically fold the file upon opening it
+set nofoldenable
+
+" Sets folds at 2nd level for opening
+set foldlevel=2
+
+" Set the max amount of folds witin a fold
+set foldnestmax=10
+
 "------------------------------------------------------------
 " Usability/Editing {{{1
 "

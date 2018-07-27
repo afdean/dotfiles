@@ -4,9 +4,15 @@
 
 My personal cheat sheet for using vim
 
+## Shortcuts
+
 ### Cursor
 
-h | move left
-j | move down
-k | move up
-l | move right
+---
+
+| Shortcut | Explanation |
+| :--- | ---: |
+| h | move left |
+| j | move down |
+| k | move up |
+| l | move right |
