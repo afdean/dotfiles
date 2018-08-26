@@ -69,9 +69,10 @@ fi
 # Utilities
 alias checkstyle='java -jar ~/dotfiles/utilities/checkstyle-8.0-all.jar -c /sun_checks.xml'
 alias findbugs='java -jar ~/dotfiles/utilities/findbugs-3.0.1/lib/findbugs.jar -textui'
-# Fix this when I can figure out pathing problem
+# TODO: Fix this when I can figure out pathing problem
 alias ja="java -cp '.:/Users/andrewdean/dotfiles/utilities/algs4.jar'"
 alias jc="javac -cp ~/dotfiles/utilities/algs4.jar"
+alias ju="java org.junit.runner.JUnitCore"
 
 if [ $currentos == "macos" ]
 then
@@ -164,8 +165,11 @@ if [ $currentos == "macos" ]
 then
     PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
     export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+    export JUNIT_HOME="$HOME/dotfiles/utilities/junit"
     export PATH=${JAVA_HOM}/bin:${PATH}
     export PATH=/opt/apache-maven-3.5.0/bin:$PATH
+    export PATH="$PATH:$JUNIT_HOME"
+    export CLASSPATH=export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.10.jar:$JUNIT_HOME/hamcrest-core-1.3.jar"
 elif [ $currentos == "ubuntu" ]
 then
     export JAVA_HOME="/usr/lib/jvm/default-java"
