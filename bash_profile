@@ -165,11 +165,12 @@ if [ $currentos == "macos" ]
 then
     PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
     export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+    export UTILITIES="$HOME/dotfiles/utilities"
     export JUNIT_HOME="$HOME/dotfiles/utilities/junit"
-    export PATH=${JAVA_HOM}/bin:${PATH}
-    export PATH=/opt/apache-maven-3.5.0/bin:$PATH
     export PATH="$PATH:$JUNIT_HOME"
-    export CLASSPATH=export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.10.jar:$JUNIT_HOME/hamcrest-core-1.3.jar"
+    export PATH=${JAVA_HOME}/bin:${PATH}
+    export PATH=/opt/apache-maven-3.5.0/bin:$PATH
+    export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.10.jar:$JUNIT_HOME/hamcrest-core-1.3.jar:$UTILITIES/algs4.jar:"
 elif [ $currentos == "ubuntu" ]
 then
     export JAVA_HOME="/usr/lib/jvm/default-java"
