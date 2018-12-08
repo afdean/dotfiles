@@ -30,7 +30,6 @@ packages="
     python3
     ruby
     texinfo
-    tidy-html5
 "
 
 brew install vim --with-override-system-vi

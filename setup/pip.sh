@@ -17,7 +17,6 @@ pip install --upgrade
 
 packages="
     certifi
-    Django
     matplotlib
     numpy
     pandas
