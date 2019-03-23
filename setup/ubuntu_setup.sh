@@ -94,6 +94,7 @@ apt_software="
     firefox
     libreoffice
     lutris
+    mesa-vulkan-drivers
     nautilus-dropbox
     octave
     openvpn

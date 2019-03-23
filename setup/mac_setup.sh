@@ -8,6 +8,7 @@
 # Should be run once
 # Can run multiple times without problems, if needed
 # Remember to chmod +x
+# Need to easy_install pip and run pip.sh separately
 # This is the very first thing to be run on a clean install
 
 ###############################################################################
@@ -105,7 +106,7 @@ xcode-select --install
 sh ./brew.sh
 
 # Pip installs
-sh ./pip.sh
+# sh ./pip.sh
 
 # Git settings
 sh ./git.sh

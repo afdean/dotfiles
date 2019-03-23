@@ -16,53 +16,38 @@ brew cask upgrade
 # INSTALL PACKAGES
 ###############################################################################
 
-# Available, but currently choosing not to have under standard install
-# ableton-live-standard
-# android-studio
-# atom
-# battle-net
-# blender
-# darktable
-# discord
-# dnscrypt
-# dolphin
-# duet
-# flux
-# gog-galaxy
-# handbrake
-# hydrogen
-# ilok-license-manager
-# kindle
-# krita
-# qbittorrent
-# rstudio
-# soundflower
-# steam
-# torbrowser
-# unity
-# vagrant
-# veracrypt
-# waves-central
+# NOT ON HERE:
+# Logic
+# Minilogue Sound Librarian
+# OneNote
+# Rewire
+# Wunderlist
+
 
 packages="
+    ableton-live-standard
     anki
     brave-browser
     calibre
     cryptomator
+    dnscrypt
     dropbox
-    eclipse-ide
     filezilla
     firefox
+    handbrake
+    ilok-license-manager
     iTerm2
     keepassxc
     libreoffice
     musescore
+    native-access
     skype
     spotify
     the-unarchiver
     thunderbird
     visual-studio-code
     vlc
+    waves-central
 "
 
 for pkg in $packages; do
