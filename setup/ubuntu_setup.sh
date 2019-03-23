@@ -18,16 +18,12 @@
 apt update
 apt -y upgrade
 apt -y dist-upgrade
-apt -y install snapd
 
 ###############################################################################
 # PPAs
 ###############################################################################
 
 repos="
-    ppa:maarten-fonville/android-studio
-    ppa:webupd8team/atom
-    ppa:teejee2008/ppa
     ppa:sebastian-stenzel/cryptomator
 "
 
@@ -36,18 +32,14 @@ for repo in $repos; do
     add-apt-repository -y $pkg
 done
 
+# Signal
+curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+
 # Lutris
-ver=$(lsb_release -sr); if [ $ver != "17.10" -a $ver != "17.04" -a $ver != "16.04" ]; then ver=16.04; fi
+ver=$(lsb_release -sr); if [ $ver != "18.10" -a $ver != "18.04" -a $ver != "16.04" ]; then ver=18.04; fi
 echo "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
-wget -q http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/Release.key -O- | sudo apt-key add -
-
-# Brave
-wget -qO - https://s3-us-west-2.amazonaws.com/brave-apt/keys.asc | sudo apt-key add -
-add-apt-repository -y "deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave-apt xenial main"
-
-# Spotify
-sh -c 'echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list'
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+wget -q https://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/Release.key -O- | sudo apt-key add -
 
 # Update all of the PPAs to be used
 apt update
@@ -84,32 +76,24 @@ sh ./git.sh
 ###############################################################################
 
 apt_software="
-    android-studio
     anki
     ardour
     atom
-    audacity
-    bleachbit
     blender
-    brave
     calibre
     clonezilla
-    cryptomator
     compizconfig-settings-manager
+    cryptomator
     ctags
-    darktable
     dnscrypt-proxy
-    dolphin-emu eclipse
+    dolphin-emu
+    eclipse
     exuberent-ctags
     gnome-tweak-tool
     filezilla
     firefox
-    handbrake
-    krita
     libreoffice
     lutris
-    lxrandr
-    musescore
     nautilus-dropbox
     octave
     openvpn
@@ -117,14 +101,12 @@ apt_software="
     psensor
     puredata
     qbittorrent
-    rkhunter
-    spotify-client
+    signal-desktop
     steam
     synaptic
     thunderbird
     timeshift
     torbrowser-launcher
-    ubuntu-gnome-desktop
     vagrant
     veracrypt
     vim
@@ -134,7 +116,10 @@ apt_software="
 "
 
 snap_software="
+    brave
     keepassxc
+    musescore
+    spotify
 "
 
 for soft in $apt_software; do
@@ -147,55 +132,57 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
+# Downloads: vscode
+
 ###############################################################################
 # UBUNTU STUDIO
 ###############################################################################
 
 # Sets Ubuntu up to handle audio work
-# Info pulled from https://help.ubuntu.com/community/UbuntuStudioPreparation:w
+# Info pulled from https://help.ubuntu.com/community/UbuntuStudioPreparation
 # Be aware, info might be outdated
+# This is all fairly unnecessary when installing ardour
 
-studio_software="
-    jackd
-    libffado2
-    linux-lowlatency
-    qjackctl
-"
+# studio_software="
+#     jackd
+#     libffado2
+#     linux-lowlatency
+#     qjackctl
+# "
 
-for soft in $studio_software; do
-    echo "Installing $soft"
-    apt -y install $soft
-done
+# for soft in $studio_software; do
+#     echo "Installing $soft"
+#     apt -y install $soft
+# done
 
-## Firewire setup
-adduser $USER audio
-firewire_software="
-    ffado-mixer-qt4
-    jackd2-firewire
-    pulseaudio-module-jack
-    patchage
-"
+# ## Firewire setup
+# adduser $USER audio
+# firewire_software="
+#     ffado-mixer-qt4
+#     jackd2-firewire
+#     pulseaudio-module-jack
+#     patchage
+# "
 
-for soft in $firewire_software; do
-    echo "Installing $soft"
-    apt -y install $soft
-done
+# for soft in $firewire_software; do
+#     echo "Installing $soft"
+#     apt -y install $soft
+# done
 
 ###############################################################################
 # RESTRICTED EXTRAS
 ###############################################################################
 
-# Based upon 16.04(xenial) package except without flash
-# https://packages.ubuntu.com/en/xenial/ubuntu-restricted-extras
+# Based upon 18.04(bionic) package except without flash
+# https://packages.ubuntu.com/en/bionic/ubuntu-restricted-extras
 # Will need to be updated for future versions
 
 restrict_software="
     libavcodec-extra
     gstreamer1.0-fluendo-mp3
     gstreamer1.0-libav
-    gstreamer1.0-plugins-bad
     gstreamer1.0-plugins-ugly
-    oxideqt-codecs-extra
+    gstreamer1.0-vaapi
     ttf-mscorefonts-installer unrar
 "
 
@@ -209,7 +196,7 @@ done
 ###############################################################################
 
 # Set wallpaper
-gsettings set org.gnome.desktop.background picture-uri file:////~/docfiles/wallpaper/dual_wallpaper.jpg
+#gsettings set org.gnome.desktop.background picture-uri file:////~/docfiles/wallpaper/dual_wallpaper.jpg
 
 # Final check to make sure all software is up to date
 apt update

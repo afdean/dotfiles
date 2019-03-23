@@ -88,9 +88,10 @@ then
     alias ll='ls -lahGFP'
     # Colored 'cat'
     alias c='pygmentize -O style=monokai -f console256 -g'
+    alias cask='brew cask'
 elif [ $currentos == "ubuntu" ]
 then
-    alias ll='ls -lahFP --color=auto'
+    alias ll='ls -lahFp --color=auto'
 fi
 
 alias ..='cd ../'
@@ -100,7 +101,6 @@ alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../../'
 alias b='cd -'
-alias cask='brew cask'
 alias h='history'
 alias home='cd ~'
 alias o='open'
