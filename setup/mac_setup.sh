@@ -111,7 +111,7 @@ sh ./brew.sh
 # Git settings
 sh ./git.sh
 
-# Brew Cask nstalls
+# Brew Cask installs
 sh ./brew_cask.sh
 
 # Reboot for changes

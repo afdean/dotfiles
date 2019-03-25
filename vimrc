@@ -22,6 +22,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " Install individual plugins
+" Run :PlugInstall in vim
 call plug#begin('~/.vim/plugged')
 Plug 'kien/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'

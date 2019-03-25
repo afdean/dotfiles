@@ -55,6 +55,8 @@ coding_pkg="
     python
     python3
     pip
+    r-base
+    r-base-dev
 "
 
 # Using default openjdk for java
@@ -62,8 +64,6 @@ for pkg in $coding_pkg; do
     echo "Installing $pkg"
     apt -y install $pkg
 done
-
-apt -y install r-base r-base-dev
 
 # Pip installs
 sh ./pip.sh
@@ -82,6 +82,7 @@ apt_software="
     blender
     calibre
     clonezilla
+    cmake
     compizconfig-settings-manager
     cryptomator
     ctags
@@ -142,7 +143,7 @@ done
 # Sets Ubuntu up to handle audio work
 # Info pulled from https://help.ubuntu.com/community/UbuntuStudioPreparation
 # Be aware, info might be outdated
-# This is all fairly unnecessary when installing ardour
+#   This is all fairly unnecessary if installing ardour
 
 # studio_software="
 #     jackd
