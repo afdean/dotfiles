@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Author: Andrew Dean
-# Description: Sets up clean install of ubuntu using GNOME
+# Description: Sets up clean install of ubuntu
 
 # Notes:
 # Upon completion, will reboot
@@ -20,11 +20,13 @@ apt -y upgrade
 apt -y dist-upgrade
 
 ###############################################################################
-# PPAs
+# Repositories
 ###############################################################################
 
 repos="
+    ppa:lutris-team/lutris
     ppa:sebastian-stenzel/cryptomator
+    ppa:unit193/encryption
 "
 
 for repo in $repos; do
@@ -32,16 +34,21 @@ for repo in $repos; do
     add-apt-repository -y $pkg
 done
 
+# KX Studio
+# Info from https://kx.studio/Repositories
+sudo apt-get install apt-transport-https software-properties-common wget
+wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_9.5.1~kxstudio3_all.deb
+sudo dpkg -i kxstudio-repos_9.5.1~kxstudio3_all.deb
+sudo apt-get install libglibmm-2.4-1v5
+wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos-gcc5_9.5.1~kxstudio3_all.deb
+sudo dpkg -i kxstudio-repos-gcc5_9.5.1~kxstudio3_all.deb
+
 # Signal
+# Info from https://signal.org/download/
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 
-# Lutris
-ver=$(lsb_release -sr); if [ $ver != "18.10" -a $ver != "18.04" -a $ver != "16.04" ]; then ver=18.04; fi
-echo "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list
-wget -q https://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/Release.key -O- | sudo apt-key add -
-
-# Update all of the PPAs to be used
+# Update all of the repos to be used
 apt update
 
 ###############################################################################
@@ -54,7 +61,8 @@ coding_pkg="
     maven
     python
     python3
-    pip
+    python-pip
+    python3-pip
 "
 
 # Using default openjdk for java
@@ -78,8 +86,8 @@ sh ./git.sh
 apt_software="
     anki
     ardour
-    atom
     blender
+    cadence
     calibre
     clonezilla
     compizconfig-settings-manager
@@ -90,15 +98,21 @@ apt_software="
     eclipse
     exuberent-ctags
     gnome-tweak-tool
+    ffado-mixer-qt4
     filezilla
     firefox
+    jackd
+    jackd2-firewire
+    libffado2
     libreoffice
+    linux-lowlatency
     lutris
     nautilus-dropbox
     octave
     openvpn
     playonlinux
     psensor
+    pulseaudio-module-jack
     puredata
     qbittorrent
     signal-desktop
@@ -120,6 +134,7 @@ snap_software="
     keepassxc
     musescore
     spotify
+    thunderbird
 "
 
 for soft in $apt_software; do
@@ -135,39 +150,19 @@ done
 # Downloads: vscode
 
 ###############################################################################
-# UBUNTU STUDIO
+# Firewire Setup
 ###############################################################################
 
-# Sets Ubuntu up to handle audio work
-# Info pulled from https://help.ubuntu.com/community/UbuntuStudioPreparation
-# Be aware, info might be outdated
-# This is all fairly unnecessary when installing ardour
+# Sets Ubuntu up to handle a firewire audio interface
+# Info pulled from
+#   https://help.ubuntu.com/community/UbuntuStudioPreparation
+#   https://linuxmusicians.com/viewtopic.php?t=18016
 
-# studio_software="
-#     jackd
-#     libffado2
-#     linux-lowlatency
-#     qjackctl
-# "
-
-# for soft in $studio_software; do
-#     echo "Installing $soft"
-#     apt -y install $soft
-# done
-
-# ## Firewire setup
-# adduser $USER audio
-# firewire_software="
-#     ffado-mixer-qt4
-#     jackd2-firewire
-#     pulseaudio-module-jack
-#     patchage
-# "
-
-# for soft in $firewire_software; do
-#     echo "Installing $soft"
-#     apt -y install $soft
-# done
+## Firewire setup
+adduser $USER audio
+# Blacklist snd_dice in modprobe.d for kernel utilized
+# Boot in low latency kernel
+# Configure Cadence Settings for Firewire backend
 
 ###############################################################################
 # RESTRICTED EXTRAS
@@ -194,9 +189,6 @@ done
 ###############################################################################
 # CLEANUP
 ###############################################################################
-
-# Set wallpaper
-#gsettings set org.gnome.desktop.background picture-uri file:////~/docfiles/wallpaper/dual_wallpaper.jpg
 
 # Final check to make sure all software is up to date
 apt update
