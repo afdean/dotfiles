@@ -116,6 +116,7 @@ apt_software="
     nautilus-dropbox
     octave
     openvpn
+    pavucontrol
     playonlinux
     psensor
     pulseaudio-module-jack
