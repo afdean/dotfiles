@@ -20,6 +20,7 @@ brew upgrade
 packages="
     ant
     bash-completion2
+    cmake
     coreutils
     ctags
     gcc

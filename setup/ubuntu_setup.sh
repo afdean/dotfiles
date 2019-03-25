@@ -20,7 +20,7 @@ apt -y upgrade
 apt -y dist-upgrade
 
 ###############################################################################
-# Repositories
+# Repositories & Downloads
 ###############################################################################
 
 repos="
@@ -48,6 +48,10 @@ sudo dpkg -i kxstudio-repos-gcc5_9.5.1~kxstudio3_all.deb
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 
+# VimPlug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Update all of the repos to be used
 apt update
 
@@ -63,6 +67,8 @@ coding_pkg="
     python3
     python-pip
     python3-pip
+    r-base
+    r-base-dev
 "
 
 # Using default openjdk for java
@@ -70,8 +76,6 @@ for pkg in $coding_pkg; do
     echo "Installing $pkg"
     apt -y install $pkg
 done
-
-apt -y install r-base r-base-dev
 
 # Pip installs
 sh ./pip.sh
@@ -90,6 +94,7 @@ apt_software="
     cadence
     calibre
     clonezilla
+    cmake
     compizconfig-settings-manager
     cryptomator
     ctags
@@ -107,6 +112,7 @@ apt_software="
     libreoffice
     linux-lowlatency
     lutris
+    mesa-vulkan-drivers
     nautilus-dropbox
     octave
     openvpn
@@ -126,6 +132,7 @@ apt_software="
     vim
     virtualbox
     vlc
+    vulkan-utils
     wine
 "
 
