@@ -151,7 +151,6 @@ snap_software="
     keepassxc
     musescore
     spotify
-    thunderbird
 "
 
 for soft in $apt_software; do
