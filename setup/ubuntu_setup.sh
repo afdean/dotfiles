@@ -51,6 +51,11 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# VSCodium
+# Info from https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
+echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list
+
 # Wunderlist
 # Info from https://github.com/edipox/wunderlistux
 wget https://github.com/edipox/wunderlistux/releases/download/Linux-0.0.8/Wunderlistux_0.0.8_amd64.deb
@@ -142,6 +147,7 @@ apt_software="
     virtualbox
     vlc
     vulkan-utils
+    vscodium
     wine
     zynaddsubfx-git
 "
@@ -163,7 +169,7 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# Downloads: helm, joplin, vscode
+# Downloads: helm, joplin
 
 ###############################################################################
 # Firewire Setup
