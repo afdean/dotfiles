@@ -2,7 +2,8 @@
 
 ## About
 
-Collection of system files, as well as scripts for setting up my devices
+Collection of system files, as well as scripts, settings and instructions
+for device setup.
 
 ## Usage
 
@@ -17,6 +18,7 @@ Collection of system files, as well as scripts for setting up my devices
 - Scripts pertaining to changing settings should be in ./setup
 - Helper files should be grouped into folders
 - Programs should be located in ./utilities
+- Text files, such as markdown, should be located in ./text
 
 ## Links
 

@@ -16,8 +16,7 @@
 ###############################################################################
 
 apt update
-apt -y upgrade
-apt -y dist-upgrade
+apt -y full-upgrade
 
 ###############################################################################
 # Repositories & Downloads
@@ -52,6 +51,11 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Wunderlist
+# Info from https://github.com/edipox/wunderlistux
+wget https://github.com/edipox/wunderlistux/releases/download/Linux-0.0.8/Wunderlistux_0.0.8_amd64.deb
+sudo apt install ./Wunderlistux_0.0.8_amd64.deb
+
 # Update all of the repos to be used
 apt update
 
@@ -70,8 +74,8 @@ coding_pkg="
     r-base
     r-base-dev
 "
-
 # Using default openjdk for java
+
 for pkg in $coding_pkg; do
     echo "Installing $pkg"
     apt -y install $pkg
@@ -90,8 +94,10 @@ sh ./git.sh
 apt_software="
     anki
     ardour
+    baobab
     blender
     cadence
+    calf-plugins
     calibre
     clonezilla
     cmake
@@ -102,6 +108,7 @@ apt_software="
     dolphin-emu
     eclipse
     exuberent-ctags
+    eq10q
     gnome-tweak-tool
     ffado-mixer-qt4
     filezilla
@@ -114,6 +121,7 @@ apt_software="
     lutris
     mesa-vulkan-drivers
     nautilus-dropbox
+    ncdu
     octave
     openvpn
     pavucontrol
@@ -135,6 +143,7 @@ apt_software="
     vlc
     vulkan-utils
     wine
+    zynaddsubfx-git
 "
 
 snap_software="
@@ -155,7 +164,7 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# Downloads: vscode
+# Downloads: helm, joplin, vscode
 
 ###############################################################################
 # Firewire Setup
@@ -170,7 +179,7 @@ done
 adduser $USER audio
 # Blacklist snd_dice in modprobe.d for kernel utilized
 # Boot in low latency kernel
-# Configure Cadence Settings for Firewire backend
+# Configure Cadence settings for firewire (ffado) backend
 
 ###############################################################################
 # RESTRICTED EXTRAS
@@ -198,9 +207,7 @@ done
 # CLEANUP
 ###############################################################################
 
-# Final check to make sure all software is up to date
 apt update
-apt -y upgrade
-apt -y dist-upgrade
+apt -y full-upgrade
 apt -y autoremove
 reboot
