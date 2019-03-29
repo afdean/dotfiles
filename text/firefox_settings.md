@@ -10,7 +10,7 @@ Check preferences on a clean install, as some things cannot synced there.
 
 Check privacytools.io for updated settings.
 
-# Settings (About Config)
+## Settings (About Config)
 
 Disable WebRTC
 
@@ -49,7 +49,7 @@ Privacy Settings (Personal)
 - browser.urlbar.maxRichResults = -1
 - browser.urlbar.maxCharsForSearchSuggestions = -1
 
-# Add-ons
+## Add-ons
 
 - Privacy Badger
 - uBlock Origin

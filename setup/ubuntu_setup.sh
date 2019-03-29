@@ -115,6 +115,7 @@ apt_software="
     exuberent-ctags
     eq10q
     gnome-tweak-tool
+    guitarix
     ffado-mixer-qt4
     filezilla
     firefox
