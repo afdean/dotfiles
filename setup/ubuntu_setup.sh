@@ -4,6 +4,8 @@
 # Description: Sets up clean install of ubuntu
 
 # Notes:
+# IMPORTANT: If you did not encrypt on install, you need to re-install
+# If dual booting, install second
 # Upon completion, will reboot
 # Should be run once with sudo privileges
 # Can run multiple times without problems, if needed
@@ -24,6 +26,7 @@ apt -y full-upgrade
 
 repos="
     ppa:lutris-team/lutris
+    ppa:pdesaulniers/wolf
     ppa:sebastian-stenzel/cryptomator
     ppa:unit193/encryption
 "
@@ -56,7 +59,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
 echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list
 
-# Wunderlist
+# Wunderlistux
 # Info from https://github.com/edipox/wunderlistux
 wget https://github.com/edipox/wunderlistux/releases/download/Linux-0.0.8/Wunderlistux_0.0.8_amd64.deb
 sudo apt install ./Wunderlistux_0.0.8_amd64.deb
@@ -104,6 +107,7 @@ apt_software="
     cadence
     calf-plugins
     calibre
+    caps
     clonezilla
     cmake
     compizconfig-settings-manager
@@ -111,14 +115,19 @@ apt_software="
     ctags
     dnscrypt-proxy
     dolphin-emu
+    drmr
+    drumgizmo
+    drumkv1
     eclipse
     exuberent-ctags
     eq10q
     gnome-tweak-tool
     guitarix
+    fabla
     ffado-mixer-qt4
     filezilla
     firefox
+    hydrogen
     jackd
     jackd2-firewire
     libffado2
