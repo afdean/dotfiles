@@ -113,6 +113,7 @@ apt_software="
     compizconfig-settings-manager
     cryptomator
     ctags
+    dexed
     dnscrypt-proxy
     dolphin-emu
     drmr
@@ -133,6 +134,7 @@ apt_software="
     libffado2
     libreoffice
     linux-lowlatency
+    linuxsampler-all
     lutris
     mesa-vulkan-drivers
     nautilus-dropbox
@@ -145,6 +147,7 @@ apt_software="
     pulseaudio-module-jack
     puredata
     qbittorrent
+    qsampler
     signal-desktop
     steam
     synaptic

@@ -59,7 +59,7 @@ Check privacytools.io for updates.
     - Compressor (Calf)
   - Non-FOSS:
     - API 2500 (Waves)
-    - Compressor (Logic)
+    - Compressor (Logic)
     - CLA-76 (Waves)
     - CLA-2A (Waves)
     - CLA-3A (Waves)
@@ -114,3 +114,82 @@ Check privacytools.io for updates.
     - Limiter (Calf)
   - Non-FOSS:
     - Limiter (Logic)
+- Oscilloscope:
+  - FOSS:
+    - Oscilloscope (x42)
+  - Non-FOSS:
+    - Limiter (Logic)
+- Pianos:
+  - FOSS:
+    - N/A
+  - Non-FOSS:
+    - The Grand, Grandeur, Maverick (NI)
+    - Scarbee Vintage Keys (NI)
+- Pitch Correction:
+  - FOSS:
+    - N/A
+  - Non-FOSS:
+    - Flex Pitch (Logic)
+- Reverb (Convolution):
+  - FOSS:
+    - N/A
+  - Non-FOSS:
+    - Space Designer (Logic)
+- Rhythm Correction:
+  - FOSS:
+    - N/A
+  - Non-FOSS:
+    - Flex Time (Logic)
+- Sampler:
+  - FOSS:
+    - LinuxSampler (qSampler front-end)
+  - Non-FOSS:
+    - Kontakt (NI)
+- Spectrum Analysis:
+  - FOSS:
+    - Analyzer (Calf)
+  - Non-FOSS:
+    - MultiMeter (Logic)
+    - Channel EQ (Logic)
+- Synthesizers:
+  - Rompler
+    - FOSS:
+      - N/A
+    - Non-FOSS:
+      - N/A
+  - FM
+    - FOSS:
+      - Dexed
+    - Non-FOSS
+      - FM8
+  - Complex:
+    - FOSS:
+      - ZynFusion
+    - Non-FOSS:
+      - Massive (NI)
+  - Analog:
+    - FOSS:
+      - N/A
+    - Non-FOSS:
+      - Monark (NI)
+      - Diva (U-he, maybe)
+  - Simple:
+    - FOSS:
+      - Helm
+    - Non-FOSS:
+      - N/A
+- Tempo:
+  - FOSS:
+    - N/A
+  - Non-FOSS:
+    - BPM Counter (Logic)
+- Threshold Independent Transient Processor:
+  - FOSS:
+    - Transient Designer (Calf)
+  - Non-FOSS:
+    - Transient Master (NI)
+- Tuner:
+  - FOSS:
+    - Tuner (x42)
+  - Non-FOSS:
+    - Tuner (Logic)
