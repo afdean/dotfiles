@@ -102,6 +102,7 @@ sh ./git.sh
 apt_software="
     anki
     ardour
+    asunder
     baobab
     blender
     cadence
@@ -149,6 +150,7 @@ apt_software="
     qbittorrent
     qsampler
     signal-desktop
+    soundconverter
     steam
     synaptic
     thunderbird
