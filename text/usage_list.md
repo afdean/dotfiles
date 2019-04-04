@@ -66,6 +66,11 @@ Check privacytools.io for updates.
     - C1 (Waves)
     - Red 3 (Focusrite)
     - SSL Comp (Waves)
+- Delay (Sample):
+  - FOSS:
+    - N/A
+  - Non-FOSS:
+    - Sample Delay (Logic)
 - Distortion/Saturation:
   - FOSS:
     - Saturator (Calf)
@@ -119,6 +124,11 @@ Check privacytools.io for updates.
     - Oscilloscope (x42)
   - Non-FOSS:
     - Limiter (Logic)
+- Pan/Balance Control:
+  - FOSS:
+    - N/A
+  - Non-FOSS:
+    - Direction Mixer (Logic)
 - Pianos:
   - FOSS:
     - N/A
