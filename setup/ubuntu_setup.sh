@@ -24,8 +24,11 @@ apt -y full-upgrade
 # Repositories & Downloads
 ###############################################################################
 
+# Info from https://github.com/ValveSoftware/Proton/wiki/Requirements
+# Remove paulo-miguel-dias if mesa-vulkan-drivers not needed
 repos="
     ppa:lutris-team/lutris
+    ppa:paulo-miguel-dias/pkppa
     ppa:pdesaulniers/wolf
     ppa:sebastian-stenzel/cryptomator
     ppa:unit193/encryption
@@ -138,7 +141,9 @@ apt_software="
     linuxsampler-all
     lutris
     mesa-vulkan-drivers
+    mesa-vulkan-drivers:i386
     nautilus-dropbox
+    neofetch
     ncdu
     octave
     openvpn
