@@ -108,6 +108,7 @@ apt_software="
     asunder
     baobab
     blender
+    bristol
     cadence
     calf-plugins
     calibre
