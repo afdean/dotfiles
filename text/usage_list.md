@@ -109,7 +109,7 @@ Check privacytools.io for updates.
     - A-Amplifier (Ardour)
   - Non-FOSS:
     - Gain (Logic)
-- Level Meter:
+- Level Meter (RMS & Peak):
   - FOSS:
     - N/A
   - Non-FOSS:
