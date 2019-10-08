@@ -161,6 +161,7 @@ apt_software="
     soundconverter
     steam
     synaptic
+    tal-plugins-vst
     thunderbird
     timeshift
     torbrowser-launcher
@@ -205,7 +206,7 @@ done
 
 ## Firewire setup
 adduser $USER audio
-# Blacklist snd_dice in lib/modprobe.d/blacklist_linuxKERNEL for kernel utilized
+# Make blacklist-snd_dice.conf in etc/modprobe.d and blacklist snd_dice
 # Boot in low latency kernel
 # Configure Cadence settings for firewire (ffado) backend
 
