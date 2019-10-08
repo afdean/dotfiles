@@ -103,6 +103,7 @@ sh ./git.sh
 ###############################################################################
 
 apt_software="
+    alacarte
     anki
     ardour
     asunder
@@ -113,6 +114,7 @@ apt_software="
     calf-plugins
     calibre
     caps
+    carla
     clonezilla
     cmake
     compizconfig-settings-manager
@@ -131,18 +133,18 @@ apt_software="
     guitarix
     fabla
     ffado-mixer-qt4
+    ffmpegthumbnailer
     filezilla
     firefox
     hydrogen
-    jackd
     jackd2-firewire
-    libffado2
     libreoffice
     linux-lowlatency
     linuxsampler-all
     lutris
     mesa-vulkan-drivers
     mesa-vulkan-drivers:i386
+    nautilus-admin
     nautilus-dropbox
     neofetch
     ncdu
@@ -190,7 +192,7 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# Downloads: helm, joplin
+# Downloads: helm, joplin, LSP (plugins)
 
 ###############################################################################
 # Firewire Setup
@@ -203,7 +205,7 @@ done
 
 ## Firewire setup
 adduser $USER audio
-# Blacklist snd_dice in modprobe.d for kernel utilized
+# Blacklist snd_dice in lib/modprobe.d/blacklist_linuxKERNEL for kernel utilized
 # Boot in low latency kernel
 # Configure Cadence settings for firewire (ffado) backend
 
