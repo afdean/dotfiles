@@ -25,7 +25,6 @@ brew cask upgrade
 
 
 packages="
-    ableton-live-standard
     anki
     brave-browser
     calibre
@@ -35,19 +34,21 @@ packages="
     filezilla
     firefox
     handbrake
-    ilok-license-manager
     iTerm2
+    joplin
     keepassxc
     libreoffice
     musescore
     native-access
+    signal
     skype
     spotify
+    steam
     the-unarchiver
     thunderbird
-    visual-studio-code
+    virtualbox
     vlc
-    waves-central
+    vscodium
 "
 
 for pkg in $packages; do
