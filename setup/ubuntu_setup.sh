@@ -5,11 +5,14 @@
 
 # Notes:
 # IMPORTANT: If you did not encrypt on install, you need to re-install
-# If dual booting, install second
-# Upon completion, will reboot
+# IMPORTANT: Do not automatically install restricted extras with installation, they
+# are included here
+
+# If dual booting, install ubuntu second
+# Upon completion, machine will reboot
 # Should be run once with sudo privileges
 # Can run multiple times without problems, if needed
-# Remember to chmod +x
+# Remember to chmod +x the script
 # This is the very first thing to be run on a clean install
 # If problems with dependencies, run apt-get -f remove
 
@@ -19,6 +22,15 @@
 
 apt update
 apt -y full-upgrade
+
+###############################################################################
+# Privacy
+###############################################################################
+
+# Double check all privacy settings in Ubuntu menu
+apt -y remove popularity-contest
+ufw enable
+ubuntu-report -f send no
 
 ###############################################################################
 # Repositories & Downloads
@@ -115,6 +127,7 @@ apt_software="
     calibre
     caps
     carla
+    chkrootkit
     clonezilla
     cmake
     compizconfig-settings-manager
@@ -136,6 +149,7 @@ apt_software="
     ffmpegthumbnailer
     filezilla
     firefox
+    gufw
     hydrogen
     jackd2-firewire
     libreoffice
