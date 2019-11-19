@@ -96,7 +96,7 @@ defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 # SOFTWARE
 ###############################################################################
 
-# Install xcode
+# Install xcode cli tools
 xcode-select --install
 
 # Install brew

@@ -18,9 +18,8 @@ brew cask upgrade
 
 # NOT ON HERE:
 # Logic
-# Minilogue Sound Librarian
 # OneNote
-# Rewire
+# Saffire Mix Control
 # Wunderlist
 
 
