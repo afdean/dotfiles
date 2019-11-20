@@ -149,6 +149,7 @@ apt_software="
     ffmpegthumbnailer
     filezilla
     firefox
+    gimp
     gufw
     hydrogen
     jackd2-firewire
