@@ -4,6 +4,7 @@
 # Description: Sets up clean install of ubuntu
 
 # Notes:
+# IMPORTANT: Check all info in repos/downloads and update as necessary
 # IMPORTANT: If you did not encrypt on install, you need to re-install
 # IMPORTANT: Do not automatically install restricted extras with installation, they
 # are included here
@@ -58,12 +59,10 @@ done
 
 # KX Studio
 # Info from https://kx.studio/Repositories
-sudo apt-get install apt-transport-https software-properties-common wget
-wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_9.5.1~kxstudio3_all.deb
-sudo dpkg -i kxstudio-repos_9.5.1~kxstudio3_all.deb
-sudo apt-get install libglibmm-2.4-1v5
-wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos-gcc5_9.5.1~kxstudio3_all.deb
-sudo dpkg -i kxstudio-repos-gcc5_9.5.1~kxstudio3_all.deb
+sudo apt-get install apt-transport-https gpgv
+sudo dpkg --purge kxstudio-repos-gcc5
+wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_10.0.3_all.deb
+sudo dpkg -i kxstudio-repos_10.0.3_all.deb
 
 # Signal
 # Info from https://signal.org/download/
