@@ -3,12 +3,11 @@
 # Author: Andrew Dean
 # Description: Sets up clean install of ubuntu
 
-# Notes:
-# IMPORTANT: Check all info in repos/downloads and update as necessary
-# IMPORTANT: If you did not encrypt on install, you need to re-install
-# IMPORTANT: Do not automatically install restricted extras with installation, they
+# IMPORTANT NOTES:
+# Check info's in repos/dls/restr-extras and update as necessary
+# If you did not encrypt on install, you need to re-install
+# Do not automatically install restricted extras with installation, they
 # are included here
-
 # If dual booting, install ubuntu second
 # Upon completion, machine will reboot
 # Should be run once with sudo privileges
@@ -45,9 +44,8 @@ ubuntu-report -f send no
 # IMPORTANT: Remove ppa if/when drivers are included in kernel
 
 repos="
-    ppa:lutris-team/lutris
     ppa:kisak/steamvr
-    ppa:pdesaulniers/wolf
+    ppa:lutris-team/lutris
     ppa:sebastian-stenzel/cryptomator
     ppa:unit193/encryption
 "
@@ -120,8 +118,10 @@ sh ./git.sh
 
 apt_software="
     alacarte
+    amsynth
     anki
     ardour
+    arpage
     asunder
     baobab
     blender
@@ -130,6 +130,7 @@ apt_software="
     calf-plugins
     calibre
     caps
+    caps-lv2
     carla
     chkrootkit
     clonezilla
@@ -138,9 +139,11 @@ apt_software="
     compizconfig-settings-manager
     cryptomator
     ctags
-    dexed
+    dexed-lv2
+    dexed-vst
     dnscrypt-proxy
     dolphin-emu
+    dragonfly-reverb
     drmr
     drumgizmo
     drumkv1
@@ -156,12 +159,20 @@ apt_software="
     firefox
     gimp
     gufw
+    gxplugins
+    helm
+    hybridreverb2
     hydrogen
     jackd2-firewire
+    klangfalter-lv2
+    klangfalter-vst
     libreoffice
     linux-generic-steamvr-18.04
     linux-lowlatency
     linuxsampler-all
+    lsp-plugins
+    luftikus-lv2
+    luftikus-vst
     lutris
     mesa-vulkan-drivers
     mesa-vulkan-drivers:i386
@@ -169,20 +180,33 @@ apt_software="
     nautilus-dropbox
     neofetch
     ncdu
+    obxd-lv2
+    obxd-vst
     octave
     openvpn
     pavucontrol
-    playonlinux
+    pitcheddelay-lv2
+    pitcheddelay-vst
+    pizmidi-plugins
     psensor
     pulseaudio-module-jack
     puredata
     qbittorrent
     qsampler
+    rubberband-lv2
+    safe-plugins
+    samplv1
+    samplv1-lv2
     signal-desktop
     soundconverter
     steam
+    surge
     synaptic
+    tal-plugins-lv2
     tal-plugins-vst
+    tap-lv2
+    teragonaudio-plugins-lv2
+    teragonaudio-plugins-vst
     thunderbird
     timeshift
     torbrowser-launcher
@@ -193,8 +217,11 @@ apt_software="
     vlc
     vulkan-utils
     wine
+    wolf-shaper
+    x42-plugins
     xserver-xorg-hwe-18.04
-    zynaddsubfx-git
+    zam-plugins
+    zynaddsubfx
 "
 
 snap_software="
