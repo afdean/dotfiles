@@ -36,11 +36,16 @@ ubuntu-report -f send no
 # Repositories & Downloads
 ###############################################################################
 
+# Steam (Mesa, VR, general)
 # Info from https://github.com/ValveSoftware/Proton/wiki/Requirements
-# Remove paulo-miguel-dias if mesa-vulkan-drivers not needed
+# and https://github.com/ValveSoftware/SteamVR-for-Linux#amd
+# IMPORTANT: Review the READMEs before clean install, and review apt list
+# 2019, list was linux-generic-steamvr-18.04, xserver-xorg-hwe-18.04 and mesas
+# IMPORTANT: Remove ppa if/when drivers are included in kernel
+
 repos="
     ppa:lutris-team/lutris
-    ppa:paulo-miguel-dias/pkppa
+    ppa:kisak/steamvr
     ppa:pdesaulniers/wolf
     ppa:sebastian-stenzel/cryptomator
     ppa:unit193/encryption
@@ -130,6 +135,7 @@ apt_software="
     chkrootkit
     clonezilla
     cmake
+    codium
     compizconfig-settings-manager
     cryptomator
     ctags
@@ -154,6 +160,7 @@ apt_software="
     hydrogen
     jackd2-firewire
     libreoffice
+    linux-generic-steamvr-18.04
     linux-lowlatency
     linuxsampler-all
     lutris
@@ -186,8 +193,8 @@ apt_software="
     virtualbox
     vlc
     vulkan-utils
-    vscodium
     wine
+    xserver-xorg-hwe-18.04
     zynaddsubfx-git
 "
 
