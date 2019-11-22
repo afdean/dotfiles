@@ -39,13 +39,12 @@ ubuntu-report -f send no
 # Steam (Mesa, VR, general)
 # Info from https://github.com/ValveSoftware/Proton/wiki/Requirements
 # and https://github.com/ValveSoftware/SteamVR-for-Linux#amd
-# IMPORTANT: Review the READMEs before clean install, and review apt list
-# 2019, list was linux-generic-steamvr-18.04, xserver-xorg-hwe-18.04 and mesas
+# IMPORTANT: Review the READMEs before clean install, and review $apt_steam
 # IMPORTANT: Remove ppa if/when drivers are included in kernel
 
 repos="
-    ppa:kisak/steamvr
     ppa:lutris-team/lutris
+    ppa:paulo-miguel-dias/pkppa
     ppa:sebastian-stenzel/cryptomator
     ppa:unit193/encryption
 "
@@ -116,97 +115,131 @@ sh ./git.sh
 # SOFTWARE
 ###############################################################################
 
-apt_software="
-    alacarte
+apt_kx="
     amsynth
-    anki
-    ardour
     arpage
-    asunder
-    baobab
-    blender
-    bristol
+    artyfx
+    avldrums.lv2
     cadence
     calf-plugins
-    calibre
     caps
     caps-lv2
     carla
-    chkrootkit
-    clonezilla
-    cmake
-    codium
-    compizconfig-settings-manager
-    cryptomator
-    ctags
+    cmt
     dexed-lv2
     dexed-vst
-    dnscrypt-proxy
-    dolphin-emu
+    distrho-plugin-ports-lv2
+    distrho-plugin-ports-vst
+    dpf-plugins
     dragonfly-reverb
     drmr
+    drowaudio-plugins-lv2
+    drowaudio-plugins-vst
     drumgizmo
     drumkv1
-    eclipse
-    exuberent-ctags
+    drumkv1-lv2
+    easyssp-lv2
+    easyssp-vst
     eq10q
-    gnome-tweak-tool
     guitarix
     fabla
-    ffado-mixer-qt4
-    ffmpegthumbnailer
-    filezilla
-    firefox
-    gimp
-    gufw
     gxplugins
     helm
     hybridreverb2
-    hydrogen
-    jackd2-firewire
+    infamous-plugins
+    juced-plugins-lv2
+    juced-plugins-vst
     klangfalter-lv2
     klangfalter-vst
-    libreoffice
-    linux-generic-steamvr-18.04
-    linux-lowlatency
     linuxsampler-all
     lsp-plugins
+    lufsmeter-lv2
+    lufsmeter-vst
     luftikus-lv2
     luftikus-vst
-    lutris
-    mesa-vulkan-drivers
-    mesa-vulkan-drivers:i386
-    nautilus-admin
-    nautilus-dropbox
-    neofetch
-    ncdu
+    mod-distortion
+    mod-pitchshifter
     obxd-lv2
     obxd-vst
-    octave
-    openvpn
-    pavucontrol
     pitcheddelay-lv2
     pitcheddelay-vst
     pizmidi-plugins
-    psensor
-    pulseaudio-module-jack
-    puredata
-    qbittorrent
-    qsampler
     rubberband-lv2
     safe-plugins
     samplv1
     samplv1-lv2
-    signal-desktop
-    soundconverter
-    steam
+    shiro-plugins
     surge
-    synaptic
     tal-plugins-lv2
     tal-plugins-vst
     tap-lv2
     teragonaudio-plugins-lv2
     teragonaudio-plugins-vst
+    wolf-shaper
+    x42-plugins
+    zam-plugins
+    zynaddsubfx
+"
+
+apt_ppa="
+    codium
+    signal-desktop
+"
+
+apt_steam="
+    mesa-vulkan-drivers
+    mesa-vulkan-drivers:i386
+"
+
+apt_studio="
+    ardour
+    ffado-mixer-qt4
+    hydrogen
+    jackd2-firewire
+    linux-lowlatency
+    pavucontrol
+    pulseaudio-module-jack
+    puredata
+    qsampler
+"
+
+apt_general="
+    alacarte
+    anki
+    asunder
+    baobab
+    blender
+    calibre
+    chkrootkit
+    clonezilla
+    cmake
+    compizconfig-settings-manager
+    cryptomator
+    ctags
+    dnscrypt-proxy
+    dolphin-emu
+    eclipse
+    exuberent-ctags
+    gnome-tweak-tool
+    ffmpegthumbnailer
+    filezilla
+    firefox
+    gimp
+    gufw
+    libreoffice
+    lutris
+    nautilus-admin
+    nautilus-dropbox
+    neofetch
+    ncdu
+    octave
+    openvpn
+    psensor
+    puredata
+    qbittorrent
+    soundconverter
+    steam
+    synaptic
     thunderbird
     timeshift
     torbrowser-launcher
@@ -217,12 +250,9 @@ apt_software="
     vlc
     vulkan-utils
     wine
-    wolf-shaper
-    x42-plugins
-    xserver-xorg-hwe-18.04
-    zam-plugins
-    zynaddsubfx
 "
+
+apt_all=$apt_kx$apt_ppa$apt_steam$apt_studio$apt_general
 
 snap_software="
     brave
@@ -231,7 +261,7 @@ snap_software="
     spotify
 "
 
-for soft in $apt_software; do
+for soft in $apt_all; do
     echo "Installing $soft"
     apt -y install $soft
 done
@@ -241,7 +271,7 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# Downloads: helm, joplin, LSP (plugins)
+# Downloads: Godot, Joplin
 
 ###############################################################################
 # Firewire Setup
@@ -275,7 +305,7 @@ restrict_software="
     ttf-mscorefonts-installer unrar
 "
 
-for soft in $firewire_software; do
+for soft in $restrict_software; do
     echo "Installing $soft"
     apt -y install $soft
 done
