@@ -234,6 +234,7 @@ apt_general="
     ncdu
     octave
     openvpn
+    ppa-purge
     psensor
     puredata
     qbittorrent
