@@ -226,6 +226,7 @@ apt_general="
     firefox
     gimp
     gufw
+    libdvd-pkg
     libreoffice
     lutris
     nautilus-admin
