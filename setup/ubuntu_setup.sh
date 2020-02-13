@@ -225,7 +225,9 @@ apt_general="
     filezilla
     firefox
     gimp
+    gparted
     gufw
+    htop
     libdvd-pkg
     libreoffice
     lutris
