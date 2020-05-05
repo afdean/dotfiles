@@ -3,13 +3,16 @@
 # Author: Andrew Dean
 # Description: Sets up clean install of ubuntu
 
-# Notes:
-# IMPORTANT: If you did not encrypt on install, you need to re-install
-# If dual booting, install second
-# Upon completion, will reboot
+# IMPORTANT NOTES:
+# Check info's in repos/dls/restr-extras and update as necessary
+# If you did not encrypt on install, you need to re-install
+# Do not automatically install restricted extras with installation, they
+# are included here
+# If dual booting, install ubuntu second
+# Upon completion, machine will reboot
 # Should be run once with sudo privileges
 # Can run multiple times without problems, if needed
-# Remember to chmod +x
+# Remember to chmod +x the script
 # This is the very first thing to be run on a clean install
 # If problems with dependencies, run apt-get -f remove
 
@@ -21,15 +24,27 @@ apt update
 apt -y full-upgrade
 
 ###############################################################################
+# Privacy
+###############################################################################
+
+# Double check all privacy settings in Ubuntu menu
+apt -y remove popularity-contest
+ufw enable
+ubuntu-report -f send no
+
+###############################################################################
 # Repositories & Downloads
 ###############################################################################
 
+# Steam (Mesa, VR, general)
 # Info from https://github.com/ValveSoftware/Proton/wiki/Requirements
-# Remove paulo-miguel-dias if mesa-vulkan-drivers not needed
+# and https://github.com/ValveSoftware/SteamVR-for-Linux#amd
+# IMPORTANT: Review the READMEs before clean install, and review $apt_steam
+# IMPORTANT: Remove ppa if/when drivers are included in kernel
+
 repos="
     ppa:lutris-team/lutris
     ppa:paulo-miguel-dias/pkppa
-    ppa:pdesaulniers/wolf
     ppa:sebastian-stenzel/cryptomator
     ppa:unit193/encryption
 "
@@ -45,12 +60,10 @@ wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_insta
 
 # KX Studio
 # Info from https://kx.studio/Repositories
-sudo apt-get install apt-transport-https software-properties-common wget
-wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_9.5.1~kxstudio3_all.deb
-sudo dpkg -i kxstudio-repos_9.5.1~kxstudio3_all.deb
-sudo apt-get install libglibmm-2.4-1v5
-wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos-gcc5_9.5.1~kxstudio3_all.deb
-sudo dpkg -i kxstudio-repos-gcc5_9.5.1~kxstudio3_all.deb
+sudo apt-get install apt-transport-https gpgv
+sudo dpkg --purge kxstudio-repos-gcc5
+wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_10.0.3_all.deb
+sudo dpkg -i kxstudio-repos_10.0.3_all.deb
 
 # Signal
 # Info from https://signal.org/download/
@@ -101,66 +114,135 @@ sh ./git.sh
 # SOFTWARE
 ###############################################################################
 
-apt_software="
+apt_kx="
+    amsynth
+    arpage
+    artyfx
+    avldrums.lv2
+    cadence
+    calf-plugins
+    caps
+    caps-lv2
+    carla
+    cmt
+    dexed-lv2
+    dexed-vst
+    distrho-plugin-ports-lv2
+    distrho-plugin-ports-vst
+    dpf-plugins
+    dragonfly-reverb
+    drmr
+    drowaudio-plugins-lv2
+    drowaudio-plugins-vst
+    drumgizmo
+    drumkv1
+    drumkv1-lv2
+    easyssp-lv2
+    easyssp-vst
+    eq10q
+    guitarix
+    fabla
+    gxplugins
+    helm
+    hybridreverb2
+    infamous-plugins
+    juced-plugins-lv2
+    juced-plugins-vst
+    klangfalter-lv2
+    klangfalter-vst
+    linuxsampler-all
+    lsp-plugins
+    lufsmeter-lv2
+    lufsmeter-vst
+    luftikus-lv2
+    luftikus-vst
+    mod-distortion
+    mod-pitchshifter
+    obxd-lv2
+    obxd-vst
+    pitcheddelay-lv2
+    pitcheddelay-vst
+    pizmidi-plugins
+    rubberband-lv2
+    safe-plugins
+    samplv1
+    samplv1-lv2
+    shiro-plugins
+    surge
+    tal-plugins-lv2
+    tal-plugins-vst
+    tap-lv2
+    teragonaudio-plugins-lv2
+    teragonaudio-plugins-vst
+    wolf-shaper
+    x42-plugins
+    zam-plugins
+    zynaddsubfx
+"
+
+apt_ppa="
+    codium
+    signal-desktop
+"
+
+apt_steam="
+    mesa-vulkan-drivers
+    mesa-vulkan-drivers:i386
+"
+
+apt_studio="
+    ardour
+    ffado-mixer-qt4
+    hydrogen
+    jackd2-firewire
+    linux-lowlatency
+    pavucontrol
+    pulseaudio-module-jack
+    puredata
+    qsampler
+"
+
+apt_general="
     alacarte
     anki
-    ardour
     asunder
     baobab
     blender
-    bristol
-    cadence
-    calf-plugins
     calibre
-    caps
-    carla
+    chkrootkit
     clonezilla
     cmake
     compizconfig-settings-manager
     cryptomator
     ctags
-    dexed
     dnscrypt-proxy
     dolphin-emu
-    drmr
-    drumgizmo
-    drumkv1
     eclipse
     exuberent-ctags
-    eq10q
     gnome-tweak-tool
-    guitarix
-    fabla
-    ffado-mixer-qt4
     ffmpegthumbnailer
     filezilla
     firefox
-    hydrogen
-    jackd2-firewire
+    gimp
+    gparted
+    gufw
+    htop
+    libdvd-pkg
     libreoffice
-    linux-lowlatency
-    linuxsampler-all
     lutris
-    mesa-vulkan-drivers
-    mesa-vulkan-drivers:i386
     nautilus-admin
     nautilus-dropbox
     neofetch
     ncdu
     octave
     openvpn
-    pavucontrol
-    playonlinux
+    ppa-purge
     psensor
-    pulseaudio-module-jack
     puredata
     qbittorrent
-    qsampler
-    signal-desktop
     soundconverter
     steam
     synaptic
-    tal-plugins-vst
     thunderbird
     timeshift
     torbrowser-launcher
@@ -170,10 +252,10 @@ apt_software="
     virtualbox
     vlc
     vulkan-utils
-    vscodium
     wine
-    zynaddsubfx-git
 "
+
+apt_all=$apt_kx$apt_ppa$apt_steam$apt_studio$apt_general
 
 snap_software="
     brave
@@ -182,7 +264,7 @@ snap_software="
     spotify
 "
 
-for soft in $apt_software; do
+for soft in $apt_all; do
     echo "Installing $soft"
     apt -y install $soft
 done
@@ -192,7 +274,7 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# Downloads: helm, joplin, LSP (plugins)
+# Downloads: Godot, Joplin
 
 ###############################################################################
 # Firewire Setup
@@ -226,7 +308,7 @@ restrict_software="
     ttf-mscorefonts-installer unrar
 "
 
-for soft in $firewire_software; do
+for soft in $restrict_software; do
     echo "Installing $soft"
     apt -y install $soft
 done
