@@ -118,8 +118,14 @@ sh ./git.sh
 apt_kx="
     amsynth
     arpage
+    arctican-plugins-lv2
+    arctican-plugins-vst
     artyfx
     avldrums.lv2
+    bchoppr
+    beatslash-lv2
+    bshapr
+    bslizr
     cadence
     calf-plugins
     caps
@@ -147,6 +153,7 @@ apt_kx="
     helm
     hybridreverb2
     infamous-plugins
+    invada-studio-plugins-lv2
     juced-plugins-lv2
     juced-plugins-vst
     klangfalter-lv2
@@ -161,9 +168,11 @@ apt_kx="
     mod-pitchshifter
     obxd-lv2
     obxd-vst
+    oxefmsynth
     pitcheddelay-lv2
     pitcheddelay-vst
     pizmidi-plugins
+    regrader
     rubberband-lv2
     safe-plugins
     samplv1
@@ -173,9 +182,12 @@ apt_kx="
     tal-plugins-lv2
     tal-plugins-vst
     tap-lv2
+    temper-lv2
+    temper-vst
     teragonaudio-plugins-lv2
     teragonaudio-plugins-vst
     wolf-shaper
+    wolf-spectrum
     x42-plugins
     zam-plugins
     zynaddsubfx
