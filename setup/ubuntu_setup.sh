@@ -54,6 +54,10 @@ for repo in $repos; do
     add-apt-repository -y $pkg
 done
 
+# Joplin
+# Info from https://joplinapp.org/
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
+
 # KX Studio
 # Info from https://kx.studio/Repositories
 sudo apt-get install apt-transport-https gpgv
@@ -74,11 +78,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Info from https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo
 wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
 echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list
-
-# Wunderlistux
-# Info from https://github.com/edipox/wunderlistux
-wget https://github.com/edipox/wunderlistux/releases/download/Linux-0.0.8/Wunderlistux_0.0.8_amd64.deb
-sudo apt install ./Wunderlistux_0.0.8_amd64.deb
 
 # Update all of the repos to be used
 apt update
