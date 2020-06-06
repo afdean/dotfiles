@@ -237,6 +237,7 @@ apt_general="
     firefox
     gimp
     gparted
+    gramps
     gufw
     htop
     libdvd-pkg
@@ -286,7 +287,7 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# Downloads: Godot, Joplin
+# Downloads: Godot, Joplin, Oversteer, new-lg4ff
 
 ###############################################################################
 # Firewire Setup
