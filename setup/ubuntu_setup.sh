@@ -219,7 +219,6 @@ apt_general="
     anki
     asunder
     baobab
-    blender
     calibre
     chkrootkit
     clonezilla
@@ -270,7 +269,9 @@ apt_general="
 
 apt_all=$apt_kx$apt_ppa$apt_steam$apt_studio$apt_general
 
+# If software is here that is also apt installable, it's because it's more recently updated
 snap_software="
+    blender --classic
     brave
     keepassxc
     musescore
