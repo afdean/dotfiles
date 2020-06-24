@@ -203,7 +203,6 @@ apt_steam="
 "
 
 apt_studio="
-    ardour
     ffado-mixer-qt4
     hydrogen
     jackd2-firewire
@@ -288,7 +287,7 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# Downloads: Godot, Joplin, Oversteer, new-lg4ff
+# Downloads: Ardour, Godot, Joplin, Oversteer, new-lg4ff
 
 ###############################################################################
 # Firewire Setup
