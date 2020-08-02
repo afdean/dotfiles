@@ -287,7 +287,7 @@ for soft in $snap_software; do
     yes | snap install $soft
 done
 
-# Downloads: Ardour, Godot, Joplin, Oversteer, new-lg4ff
+# Downloads: Ardour, Godot, Oversteer, new-lg4ff
 
 ###############################################################################
 # Firewire Setup
@@ -333,4 +333,6 @@ done
 apt update
 apt -y full-upgrade
 apt -y autoremove
+# Adjust time zone settings for compatibility in dual booting windows
+timedatectl set-local-rtc 1 --adjust-system-clock
 reboot
