@@ -123,6 +123,9 @@ apt_kx="
     avldrums.lv2
     bchoppr
     beatslash-lv2
+    bchoppr
+    bjumblr
+    bsequencer
     bshapr
     bslizr
     cadence
@@ -131,10 +134,12 @@ apt_kx="
     caps-lv2
     carla
     cmt
+    cv-lfo-blender-lv2
     dexed-lv2
     dexed-vst
     distrho-plugin-ports-lv2
     distrho-plugin-ports-vst
+    die-plugins
     dpf-plugins
     dragonfly-reverb
     drmr
@@ -148,6 +153,7 @@ apt_kx="
     eq10q
     guitarix
     fabla
+    geonkick
     gxplugins
     helm
     hybridreverb2
@@ -163,11 +169,15 @@ apt_kx="
     lufsmeter-vst
     luftikus-lv2
     luftikus-vst
+    melmatcheq.lv2
     mod-distortion
     mod-pitchshifter
+    mod-utilities
+    noise-repellent
     obxd-lv2
     obxd-vst
     oxefmsynth
+    padthv1-lv2
     pitcheddelay-lv2
     pitcheddelay-vst
     pizmidi-plugins
@@ -176,8 +186,15 @@ apt_kx="
     safe-plugins
     samplv1
     samplv1-lv2
+    setbfree
+    sherlock.lv2
     shiro-plugins
+    sorcer
     surge
+    swankyamp-lv2
+    swankyamp-vst
+    synthv1
+    synthv1-lv2
     tal-plugins-lv2
     tal-plugins-vst
     tap-lv2
@@ -185,10 +202,15 @@ apt_kx="
     temper-vst
     teragonaudio-plugins-lv2
     teragonaudio-plugins-vst
+    vitalium-lv2
+    vitalium-vst
     wolf-shaper
     wolf-spectrum
+    wolpertinger-lv2
+    wolpertinger-vst
     x42-plugins
     zam-plugins
+    zlfo
     zynaddsubfx
 "
 
